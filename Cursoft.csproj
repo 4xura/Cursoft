@@ -12,7 +12,7 @@
 		<Product>Cursoft</Product>
 		<AssemblyTitle>Cursoft</AssemblyTitle>
 		<Platforms>AnyCPU;x64</Platforms>
-		<Version>1.0.0</Version>
+		<Version>1.0.1</Version>
 		<InvariantGlobalization>false</InvariantGlobalization>
 		<ApplicationIcon>cursoft-logo.ico</ApplicationIcon>
 		<ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
