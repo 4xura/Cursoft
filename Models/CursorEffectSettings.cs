@@ -22,12 +22,13 @@ internal sealed record CursorEffectStyle(uint Primary, uint Accent, int Range, i
 internal sealed record CursorEffectSettings
 {
 	private static readonly CursorEffectStyle DefaultGlow = new(0xFFCC70FF, 0xFF9431EA, 40, 3, 75);
-	private static readonly CursorEffectStyle DefaultRibbon = new(0xFFEDD2FF, 0xFFCE4FFF, 420, 1, 90);
+	private static readonly CursorEffectStyle DefaultRibbon = new(0xFF80F2FF, 0xFFB967FF, 378, 1, 50);
+	private const bool DefaultRibbonCyclesColor = true;
 	private static readonly CursorEffectStyle DefaultSparks = new(0xFFFFDA90, 0xFFF57CFF, 64, 4, 90);
 
 	public CursorEffectMode Mode { get; init; }
 	public CursorGlowShape GlowShape { get; init; }
-	public bool RibbonCyclesColor { get; init; }
+	public bool RibbonCyclesColor { get; init; } = DefaultRibbonCyclesColor;
 	public bool SparksCycleColors { get; init; }
 	public const int DefaultSparksLength = 156;
 	public int SparksTrailLength { get; init; } = DefaultSparksLength;
@@ -60,7 +61,7 @@ internal sealed record CursorEffectSettings
 
 	public CursorEffectSettings ResetStyle() => Mode switch
 	{
-		CursorEffectMode.Ribbon => this with { Ribbon = DefaultRibbon, RibbonCyclesColor = false },
+		CursorEffectMode.Ribbon => this with { Ribbon = DefaultRibbon, RibbonCyclesColor = DefaultRibbonCyclesColor },
 		CursorEffectMode.Sparks => this with { Sparks = DefaultSparks, SparksCycleColors = false, SparksTrailLength = DefaultSparksLength },
 		_ => this with { Glow = DefaultGlow, GlowShape = CursorGlowShape.Halo },
 	};

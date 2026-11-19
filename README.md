@@ -32,7 +32,9 @@ When closing Cursoft, choose **Minimize to tray** to keep effects running or **E
 
 Double-click the tray icon to reopen Cursoft, or right-click it and choose **Exit** to quit. Enable **Launch on Startup** to restore your selected effect in the background when you sign in to Windows.
 
-## Build
+## Build and Download
+
+[Download Cursoft.exe from the latest GitHub release](https://github.com/4xura/Cursoft/releases/latest).
 
 Open `Cursoft.sln` in **Microsoft Visual Studio** with the **.NET desktop development** workload installed. On first open, let NuGet restore the project’s packages. Choose **Build → Build Solution** (`Ctrl+Shift+B`).
 
@@ -43,5 +45,3 @@ In **Developer PowerShell for Visual Studio**, this command restores packages an
 ```powershell
 MSBuild.exe .\Cursoft.sln /restore
 ```
-
-[MIT License](LICENSE)
