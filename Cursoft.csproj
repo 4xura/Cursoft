@@ -1,0 +1,82 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+		<UseWPF>true</UseWPF>
+		<UseWindowsForms>true</UseWindowsForms>
+		<Nullable>enable</Nullable>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<RootNamespace>Cursoft</RootNamespace>
+		<AssemblyName>Cursoft</AssemblyName>
+		<Product>Cursoft</Product>
+		<AssemblyTitle>Cursoft</AssemblyTitle>
+		<Platforms>AnyCPU;x64</Platforms>
+		<Version>1.0.0</Version>
+		<InvariantGlobalization>false</InvariantGlobalization>
+		<ApplicationIcon>cursoft-logo.ico</ApplicationIcon>
+		<ApplicationHighDpiMode>PerMonitorV2</ApplicationHighDpiMode>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)' == 'Release'">
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<SelfContained>true</SelfContained>
+		<PublishSingleFile>true</PublishSingleFile>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<EnableCompressionInSingleFile>true</EnableCompressionInSingleFile>
+		<DebugType>none</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+		<PublishDir>$(MSBuildProjectDirectory)\release\</PublishDir>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Using Include="System.IO" />
+		<Using Remove="System.Drawing" />
+		<Using Remove="System.Windows.Forms" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="cursoft-logo.ico" />
+		<Resource Include="cursoft-logo.png" />
+		<Resource Include="Resources\Spectrum.jpg" />
+		<Resource Include="Resources\Daylight.jpg" />
+		<Resource Include="Resources\OpenFolder52.png" />
+		<Resource Include="Resources\LinkIcon32.png" />
+		<Resource Include="Resources\LockIcon26.png" />
+		<Resource Include="Resources\DownloadIcon32.png" />
+		<Resource Include="Resources\OpenFolderIcon32.png" />
+		<Resource Include="Resources\ImportIcon26.png" />
+		<Resource Include="Resources\ArrowIcon48.png" />
+		<Resource Include="Resources\CenterIcon26.png" />
+		<Resource Include="Resources\EraseIcon32.png" />
+		<Resource Include="Resources\PencilIcon48.png" />
+		<Resource Include="Resources\FillIcon32.png" />
+		<Resource Include="Resources\EyedropperIcon48.png" />
+		<Resource Include="Resources\ImageRefIcon32.png" />
+		<Resource Include="Resources\StairIcon24.png" />
+		<Resource Include="Resources\ExpandIcon32.png" />
+		<Resource Include="Resources\SizeChangeIcon32.png" />
+		<Resource Include="Resources\DefaultCursors\Crosshair.cur" />
+		<Resource Include="Resources\DefaultCursors\IBeam.cur" />
+		<Resource Include="Resources\ArchiveReadme.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Resource Include="Resources\Localization\Help\**\*.md" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <PackageReference Include="SharpCompress" Version="0.49.1" />
+	</ItemGroup>
+
+	<ItemGroup Condition="'$(Configuration)' == 'Release'">
+		<UpToDateCheckBuilt Include="$(PublishDir)$(AssemblyName).exe" />
+	</ItemGroup>
+
+	<!-- Build and publish share a single distribution directory. -->
+	<Target Name="PublishCursoftRelease" AfterTargets="Build"
+	        Condition="'$(Configuration)' == 'Release' and '$(DesignTimeBuild)' != 'true' and '$(_IsPublishing)' != 'true' and '$(NoBuild)' != 'true' and '$(MSBuildProjectName)' == 'Cursoft'">
+		<MSBuild Projects="$(MSBuildProjectFullPath)" Targets="Publish"
+		         Properties="NoBuild=true;PublishDir=$(PublishDir)" />
+	</Target>
+</Project>

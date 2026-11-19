@@ -1,0 +1,154 @@
+using System.Windows;
+using System.Windows.Controls;
+using Cursoft.Models;
+using Cursoft.Services;
+
+namespace Cursoft.Views;
+
+public partial class PresetEditorWindow
+{
+	private (string PresetName, Dictionary<string, string> RoleFiles) GetPresetNameAndRoleFiles()
+	{
+		var invalid = Path.GetInvalidPathChars();
+		var presetName = string.Join("", NameBox.Text.Where(character => !invalid.Contains(character))).Trim();
+
+		if (string.IsNullOrWhiteSpace(presetName))
+			presetName = Loc.Get(LocDefaultPresetName);
+
+		var roleFiles = new Dictionary<string, string>();
+
+		foreach (var slot in _slots)
+		{
+			var resolvedPath = GetSlotResolvedPath(slot);
+
+			if (resolvedPath != null && File.Exists(resolvedPath))
+				roleFiles[slot.Role.RegistryName] = resolvedPath;
+		}
+
+		return (presetName, roleFiles);
+	}
+
+	private void OnDownloadPresetClick(object sender, RoutedEventArgs e)
+	{
+		var (presetName, roleFiles) = GetPresetNameAndRoleFiles();
+
+		if (roleFiles.Count == 0)
+			return;
+
+		var lockedRoles = _slots.Where(slot => slot.IsLocked)
+			.Select(slot => slot.Role.RegistryName)
+			.ToHashSet();
+
+		var path = PresetPackageService.DownloadPresetAsFolder(presetName, roleFiles, _baseSize, _useScaling, _scaleMode, lockedRoles, AuthorDisplayText.Text);
+
+		if (path == null)
+			return;
+
+		ToastService.Show(EditorRootGrid, Loc.Format(LocToastPresetDownloaded, presetName, roleFiles.Count));
+
+		if (AppState.GetOpenFolderAfterDownload())
+			ExplorerService.RevealFile(path);
+	}
+
+	private void OnDownloadPresetMoreClick(object sender, RoutedEventArgs e)
+	{
+		var menu = new ContextMenu { PlacementTarget = DownloadPresetMoreButton, IsOpen = true };
+
+		var fullPackageItem = new MenuItem { Header = Loc.Get(LocExportAsFullPackage) };
+		fullPackageItem.Click += (_, _) => ExportFullPackage();
+		menu.Items.Add(fullPackageItem);
+
+		var xcursorItem = new MenuItem { Header = Loc.Get(LocExportAsXcursorTheme) };
+		xcursorItem.Click += (_, _) => ExportPresetForLinux(asXcursorTheme: true);
+		menu.Items.Add(xcursorItem);
+
+		var linuxItem = new MenuItem { Header = Loc.Get(LocExportAsLinuxArchive) };
+		linuxItem.Click += (_, _) => ExportPresetForLinux(asXcursorTheme: false);
+		menu.Items.Add(linuxItem);
+
+		var readmeItem = new MenuItem
+		{
+			Header = Loc.Get(LocDownloadReadme),
+			ToolTip = Loc.Get(LocDownloadReadmeTooltip),
+		};
+		readmeItem.Click += (_, _) => DownloadReadme();
+		menu.Items.Add(readmeItem);
+	}
+
+	private void DownloadReadme()
+	{
+		var path = PresetPackageService.DownloadReadme();
+		ToastService.Show(EditorRootGrid, Loc.Format(LocToastReadmeDownloaded, Path.GetFileName(path)));
+
+		if (AppState.GetOpenFolderAfterDownload())
+			ExplorerService.RevealFile(path);
+	}
+
+	private void ExportPresetForLinux(bool asXcursorTheme)
+	{
+		var (presetName, roleFiles) = GetPresetNameAndRoleFiles();
+
+		if (roleFiles.Count == 0)
+			return;
+
+		Directory.CreateDirectory(AppPaths.DownloadsDir);
+
+		var path = asXcursorTheme
+			? PresetPackageService.ExportXcursorThemeForFiles(presetName, roleFiles)
+			: PresetPackageService.ExportLinuxArchiveForFiles(presetName, roleFiles);
+
+		if (path == null)
+			return;
+
+		var toastKey = asXcursorTheme ? LocToastExportedXcursorTheme : LocToastExportedLinuxArchive;
+		ToastService.Show(EditorRootGrid, Loc.Format(toastKey, 1, Path.GetFileName(path)));
+
+		if (AppState.GetOpenFolderAfterDownload())
+			ExplorerService.RevealFile(path);
+	}
+
+	private void ExportFullPackage()
+	{
+		var (presetName, roleFiles) = GetPresetNameAndRoleFiles();
+
+		if (roleFiles.Count == 0)
+			return;
+
+		Directory.CreateDirectory(AppPaths.DownloadsDir);
+
+		var path = PresetPackageService.ExportFullPackageForFiles(presetName, roleFiles, _baseSize, _useScaling, _scaleMode, lockedRoles: null, author: AuthorDisplayText.Text);
+
+		if (path == null)
+			return;
+
+		ToastService.Show(EditorRootGrid, Loc.Format(LocToastExportedFullPackage, Path.GetFileName(path)));
+
+		if (AppState.GetOpenFolderAfterDownload())
+			ExplorerService.RevealFile(path);
+	}
+
+	private void OnSaveButtonClick(object sender, RoutedEventArgs e)
+	{
+		if (_slots.All(slot => slot.SourcePath == null && slot.RefPresetId == null))
+		{
+			MessageBox.Show(Loc.Get(LocEditorNoFiles), Title,
+				MessageBoxButton.OK, MessageBoxImage.Information);
+			return;
+		}
+
+		var draft = new PresetDraft { Id = _draftId, Name = NameBox.Text, Author = AuthorDisplayText.Text, BaseSize = _baseSize, UseScaling = _useScaling, ScaleMode = _scaleMode };
+
+		foreach (var slot in _slots.Where(slot => slot.SourcePath != null || slot.RefPresetId != null))
+		{
+			draft.RoleSources[slot.Role.RegistryName] = slot.RefPresetId != null
+				? new RoleSourceDraft { Ref = new RoleRef { PresetId = slot.RefPresetId, FileName = slot.RefFileName! } }
+				: new RoleSourceDraft { OwnFilePath = slot.SourcePath };
+		}
+
+		foreach (var slot in _slots.Where(slot => slot.IsLocked))
+			draft.LockedRoles.Add(slot.Role.RegistryName);
+
+		Result = draft;
+		DialogResult = true;
+	}
+}

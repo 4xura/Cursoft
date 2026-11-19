@@ -1,0 +1,27 @@
+# 🏠 Principal — galería de preajustes
+
+## 📦 Galería — muestra todos tus preajustes de cursor.
+- Clic izquierdo — aplicar cursores.
+- Clic derecho — menú (editar, renombrar, mover a la izquierda/derecha, descargar, eliminar, añadir a grupo).
+- Insignia 🧩 — algunos roles provienen de otros preajustes.
+- Arrastra una miniatura sobre otra — reordenar preajustes.
+- Ctrl+clic en varias miniaturas — selecciónalas y elige color y nombre abajo para crear un grupo. Clic en la miniatura del grupo para plegarla/desplegarla como mazo; clic derecho para selección aleatoria, editar, consolidar, desagrupar o eliminar.
+- Clic derecho en espacio vacío del tablero — "Crear grupo" abre un diálogo para crear un grupo vacío.
+
+## ➕ "Añadir preajuste" — crear nuevo preajuste.
+- Arrastra archivos .cur/.ani o una carpeta a la ventana.
+
+## 🎨 Tamaño de cuadrícula — cambia el tamaño de las celdas.
+Elige el tamaño y el método de ajuste y pulsa Aplicar. Windows puede ajustar el puntero, suavizar los bordes o conservar los píxeles definidos.
+↩️ "Atrás" — revertir al conjunto anterior.
+🌙/☀ — cambiar tema oscuro/claro.
+🌐 — cambiar idioma.
+🔍 −/+ — zoom de interfaz.
+{img:OpenFolderIcon32} Icono de carpeta — azul = la carpeta de Descargas se abre tras descargar/exportar; gris = desactivado.
+{img:DownloadIcon32} Exportar — elige preajustes y guárdalos como paquete (.cursoft, totalmente reimportable) o como archivo ZIP simple (cursores originales); se guarda en Descargas.
+{img:ImportIcon26} Importar — elige un archivo de paquete/ZIP de Cursoft (o arrástralo a la ventana) y marca qué preajustes añadir.
+Haz clic en el nombre Cursoft para abrir Acerca de.
+Iniciar Cursoft en la bandeja del sistema al iniciar sesión en Windows.
+🖱️ Clic derecho en la ficha «Predeterminado» — descargar cursores del sistema a Descargas (PNG+GIF o .cur/.ani).
+ⓘ Botón arriba a la derecha — ayuda de ventana.
+🖱️ Clic en el icono azul del cursor en el nombre de la app — aplicar un cursor aleatorio de todo el tablero.

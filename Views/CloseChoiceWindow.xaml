@@ -1,0 +1,29 @@
+<Window x:Class="Cursoft.Views.CloseChoiceWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:controls="clr-namespace:Cursoft.Controls"
+        Title="{DynamicResource S.Close.Title}" Width="464" SizeToContent="Height"
+        WindowStartupLocation="CenterOwner" ShowInTaskbar="False" ResizeMode="NoResize"
+        Style="{StaticResource Style.Window}">
+    <Grid KeyboardNavigation.TabNavigation="Cycle">
+        <Border x:Name="GlassBackdrop" Background="{DynamicResource Glass.Art}" IsHitTestVisible="False"/>
+        <Border Background="{DynamicResource Glass.Wash}" IsHitTestVisible="False"/>
+        <controls:GlassSurface CornerRadius="22" Padding="20" Margin="16">
+            <StackPanel>
+                <TextBlock Text="{DynamicResource S.Close.Title}" FontSize="24" FontWeight="SemiBold"/>
+                <TextBlock Text="{DynamicResource S.Close.Description}" TextWrapping="Wrap"
+                           Foreground="{DynamicResource Brush.TextDim}" Margin="0,8,0,18"/>
+                <CheckBox x:Name="RememberCheckBox" Style="{StaticResource Style.ToggleCheckBox}"
+                          Content="{DynamicResource S.Close.Remember}" Margin="0,0,0,18"/>
+                <WrapPanel HorizontalAlignment="Right">
+                    <Button x:Name="CancelCloseButton" Content="{DynamicResource S.Editor.Cancel}" IsCancel="True"
+                            Style="{StaticResource Style.GhostButton}" Height="36" Margin="0,0,6,0"/>
+                    <Button x:Name="ExitButton" Content="{DynamicResource S.Tray.Exit}" Click="OnExitClick"
+                            Style="{StaticResource Style.Button}" Height="36" Margin="0,0,8,0"/>
+                    <Button x:Name="MinimizeButton" Content="{DynamicResource S.Close.Minimize}" Click="OnMinimizeClick"
+                            Style="{StaticResource Style.AccentButton}" Height="36" IsDefault="True"/>
+                </WrapPanel>
+            </StackPanel>
+        </controls:GlassSurface>
+    </Grid>
+</Window>

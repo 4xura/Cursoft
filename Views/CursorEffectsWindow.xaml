@@ -1,0 +1,195 @@
+<Window x:Class="Cursoft.Views.CursorEffectsWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:controls="clr-namespace:Cursoft.Controls"
+		xmlns:models="clr-namespace:Cursoft.Models"
+		Title="{DynamicResource S.Effects.Title}"
+		Width="890" SizeToContent="Height" ResizeMode="NoResize"
+		WindowStartupLocation="CenterOwner" ShowInTaskbar="False"
+		Style="{StaticResource Style.Window}">
+
+	<Window.Resources>
+
+		<Style x:Key="EffectIcon" TargetType="Path">
+			<Setter Property="Width" Value="17" />
+			<Setter Property="Height" Value="17" />
+			<Setter Property="Stretch" Value="Uniform" />
+			<Setter Property="Stroke" Value="{StaticResource Brush.Accent}" />
+			<Setter Property="StrokeThickness" Value="1.35" />
+			<Setter Property="StrokeStartLineCap" Value="Round" />
+			<Setter Property="StrokeEndLineCap" Value="Round" />
+			<Setter Property="Margin" Value="0,0,7,0" />
+		</Style>
+
+		<Style x:Key="EffectSlider" TargetType="Slider" BasedOn="{StaticResource Style.Slider}">
+			<Setter Property="IsSnapToTickEnabled" Value="True" />
+			<Setter Property="IsMoveToPointEnabled" Value="True" />
+			<Setter Property="TickFrequency" Value="1" />
+			<Setter Property="SmallChange" Value="1" />
+			<Setter Property="LargeChange" Value="5" />
+		</Style>
+	</Window.Resources>
+
+    <Grid>
+        <Border x:Name="GlassBackdrop" Background="{StaticResource Glass.Art}" IsHitTestVisible="False"/>
+        <Border Background="{DynamicResource Glass.Wash}" IsHitTestVisible="False"/>
+        <DockPanel x:Name="EffectsLayout" Margin="22,17,22,18" KeyboardNavigation.TabNavigation="Cycle">
+            <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Margin="0,0,0,17">
+                <Image Source="/cursoft-logo.ico" Width="31" Height="31" Margin="0,0,11,0"/>
+                <TextBlock Text="{DynamicResource S.Effects.Title}" FontFamily="Segoe UI Semibold" FontSize="25"/>
+            </StackPanel>
+            <DockPanel DockPanel.Dock="Bottom" Margin="0,17,0,0" LastChildFill="False">
+                <Button x:Name="ResetButton" DockPanel.Dock="Left" Style="{StaticResource Style.GhostButton}"
+                        Content="{DynamicResource S.Effects.Reset}" Click="OnResetClick"/>
+                <Button x:Name="ApplyEffectsButton" DockPanel.Dock="Right" Style="{StaticResource Style.AccentButton}"
+                        Content="{DynamicResource S.Effects.Apply}" Padding="25,9" IsDefault="True" Click="OnApplyClick"/>
+                <Button DockPanel.Dock="Right" Style="{StaticResource Style.Button}" Margin="0,0,9,0"
+                        Content="{DynamicResource S.Editor.Cancel}" Padding="20,9" IsCancel="True"/>
+            </DockPanel>
+            <Grid MinHeight="340">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="142"/><ColumnDefinition Width="12"/><ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="12"/><ColumnDefinition Width="247"/>
+                </Grid.ColumnDefinitions>
+                <controls:GlassSurface CornerRadius="26" VerticalAlignment="Top" Padding="5">
+                    <ListBox x:Name="ModeList" Background="Transparent" BorderThickness="0" Padding="0" Margin="0"
+					 SelectedValuePath="Tag" SelectionChanged="OnModeChanged" ItemContainerStyle="{StaticResource Glass.Segment}"
+					 AutomationProperties.Name="{DynamicResource S.Effects.Title}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Stretch">
+				<ListBox.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel />
+					</ItemsPanelTemplate>
+				</ListBox.ItemsPanel>
+				<ListBoxItem Tag="{x:Static models:CursorEffectMode.Off}" AutomationProperties.Name="{DynamicResource S.Effects.Off}">
+					<StackPanel Orientation="Horizontal">
+						<Path Style="{StaticResource EffectIcon}" Data="M 13.5,8 A 5.5,5.5 0 1 1 2.5,8 A 5.5,5.5 0 1 1 13.5,8 M 4,12 L 12,4" />
+						<TextBlock Text="{DynamicResource S.Effects.Off}" VerticalAlignment="Center" />
+					</StackPanel>
+				</ListBoxItem>
+				<ListBoxItem Tag="{x:Static models:CursorEffectMode.Glow}" AutomationProperties.Name="{DynamicResource S.Effects.Glow}">
+					<StackPanel Orientation="Horizontal">
+						<Path Style="{StaticResource EffectIcon}" Data="M 14,8 A 6,6 0 1 1 2,8 A 6,6 0 1 1 14,8 M 10.5,8 A 2.5,2.5 0 1 1 5.5,8 A 2.5,2.5 0 1 1 10.5,8" />
+						<TextBlock Text="{DynamicResource S.Effects.Glow}" VerticalAlignment="Center" />
+					</StackPanel>
+				</ListBoxItem>
+				<ListBoxItem Tag="{x:Static models:CursorEffectMode.Ribbon}" AutomationProperties.Name="{DynamicResource S.Effects.Ribbon}">
+					<StackPanel Orientation="Horizontal">
+						<Path Style="{StaticResource EffectIcon}" Data="M 1,12 C 7,12 4,4 15,4 M 1,9 C 7,9 5,7 15,4 M 1,14 C 9,14 4,1 15,4" />
+						<TextBlock Text="{DynamicResource S.Effects.Ribbon}" VerticalAlignment="Center" />
+					</StackPanel>
+				</ListBoxItem>
+				<ListBoxItem Tag="{x:Static models:CursorEffectMode.Sparks}" AutomationProperties.Name="{DynamicResource S.Effects.Sparks}">
+					<StackPanel Orientation="Horizontal">
+						<Path Style="{StaticResource EffectIcon}" Data="M 7,1 L 8.5,5.5 L 13,7 L 8.5,8.5 L 7,13 L 5.5,8.5 L 1,7 L 5.5,5.5 Z M 13.5,10 L 13.5,15 M 11,12.5 L 16,12.5" />
+						<TextBlock Text="{DynamicResource S.Effects.Sparks}" VerticalAlignment="Center" />
+					</StackPanel>
+				</ListBoxItem>
+			</ListBox>
+                </controls:GlassSurface>
+                <controls:GlassSurface Grid.Column="2" CornerRadius="29" Padding="14">
+                    <Grid>
+                        <controls:CursorEffectPreview x:Name="EffectPreview"/>
+                        <TextBlock Text="{DynamicResource S.Effects.Preview}" IsHitTestVisible="False"
+                                   VerticalAlignment="Top" Margin="3,2,0,0" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="PreviewHint" Text="{DynamicResource S.Effects.PreviewHint}"
+                                   IsHitTestVisible="False" VerticalAlignment="Bottom" TextAlignment="Center"
+                                   TextWrapping="Wrap" Foreground="{DynamicResource Brush.TextDim}" Margin="0,0,0,3"/>
+                    </Grid>
+                </controls:GlassSurface>
+                <controls:GlassSurface Grid.Column="4" CornerRadius="24" Padding="16,18">
+                    <Grid>
+						<TextBlock x:Name="OffHint" Text="{DynamicResource S.Effects.OffHint}" TextWrapping="Wrap"
+								   Foreground="{StaticResource Brush.TextDim}" VerticalAlignment="Center"
+								   HorizontalAlignment="Center" TextAlignment="Center" MaxWidth="225" />
+
+						<StackPanel x:Name="EffectFields">
+							<Grid Margin="0,0,0,15">
+								<Grid.ColumnDefinitions>
+									<ColumnDefinition Width="*" />
+									<ColumnDefinition Width="10" />
+									<ColumnDefinition Width="*" />
+								</Grid.ColumnDefinitions>
+								<StackPanel>
+									<TextBlock Text="{DynamicResource S.Effects.Primary}" Margin="0,0,0,5" />
+									<Button x:Name="PrimaryColorButton" Style="{StaticResource Style.Button}" Click="OnColorClick"
+											AutomationProperties.Name="{DynamicResource S.Effects.Primary}" Padding="8,7">
+										<StackPanel Orientation="Horizontal">
+											<Border x:Name="PrimarySwatch" Width="17" Height="17" CornerRadius="4" Margin="0,0,8,0" />
+											<TextBlock x:Name="PrimaryColorText" FontFamily="Consolas" VerticalAlignment="Center" />
+										</StackPanel>
+									</Button>
+								</StackPanel>
+								<StackPanel Grid.Column="2">
+									<TextBlock Text="{DynamicResource S.Effects.Accent}" Margin="0,0,0,5" />
+									<Button x:Name="AccentColorButton" Style="{StaticResource Style.Button}" Click="OnColorClick"
+											AutomationProperties.Name="{DynamicResource S.Effects.Accent}" Padding="8,7">
+										<StackPanel Orientation="Horizontal">
+											<Border x:Name="AccentSwatch" Width="17" Height="17" CornerRadius="4" Margin="0,0,8,0" />
+											<TextBlock x:Name="AccentColorText" FontFamily="Consolas" VerticalAlignment="Center" />
+										</StackPanel>
+									</Button>
+								</StackPanel>
+							</Grid>
+
+							<CheckBox x:Name="CycleColorsCheckBox" Style="{StaticResource Style.ToggleCheckBox}"
+									  Content="{DynamicResource S.Effects.CycleColors}" Margin="0,0,0,14"
+									  Checked="OnColorCycleChanged" Unchecked="OnColorCycleChanged" />
+
+							<StackPanel x:Name="ShapeRow" Margin="0,0,0,12">
+								<TextBlock Text="{DynamicResource S.Effects.Shape}" Margin="0,0,0,5" />
+								<ComboBox x:Name="ShapeBox" Style="{StaticResource Style.ComboBox}" SelectedValuePath="Tag"
+										  AutomationProperties.Name="{DynamicResource S.Effects.Shape}" SelectionChanged="OnShapeChanged">
+									<ComboBoxItem Tag="{x:Static models:CursorGlowShape.Halo}" Content="{DynamicResource S.Effects.Halo}" />
+									<ComboBoxItem Tag="{x:Static models:CursorGlowShape.Ring}" Content="{DynamicResource S.Effects.Ring}" />
+									<ComboBoxItem Tag="{x:Static models:CursorGlowShape.Crosshair}" Content="{DynamicResource S.Effects.Crosshair}" />
+								</ComboBox>
+							</StackPanel>
+
+							<Grid>
+								<TextBlock x:Name="RangeLabel" />
+								<TextBlock x:Name="RangeValue" HorizontalAlignment="Right" Foreground="{StaticResource Brush.TextDim}" />
+							</Grid>
+							<Slider x:Name="RangeSlider" Style="{StaticResource EffectSlider}" Margin="0,1,0,10"
+									AutomationProperties.LabeledBy="{Binding ElementName=RangeLabel}" ValueChanged="OnSliderChanged" />
+
+							<StackPanel x:Name="SparksLengthRow">
+								<Grid>
+									<TextBlock x:Name="SparksLengthLabel" Text="{DynamicResource S.Effects.Length}" />
+									<TextBlock x:Name="SparksLengthValue" HorizontalAlignment="Right" Foreground="{StaticResource Brush.TextDim}" />
+								</Grid>
+								<Slider x:Name="SparksLengthSlider" Style="{StaticResource EffectSlider}" Margin="0,1,0,10"
+										AutomationProperties.LabeledBy="{Binding ElementName=SparksLengthLabel}" ValueChanged="OnSliderChanged" />
+							</StackPanel>
+							<StackPanel x:Name="WidthRow">
+								<Grid>
+									<TextBlock x:Name="WidthLabel" />
+									<TextBlock x:Name="WidthValue" HorizontalAlignment="Right" Foreground="{StaticResource Brush.TextDim}" />
+								</Grid>
+								<Slider x:Name="WidthSlider" Style="{StaticResource EffectSlider}" Margin="0,1,0,10"
+										AutomationProperties.LabeledBy="{Binding ElementName=WidthLabel}" ValueChanged="OnSliderChanged" />
+							</StackPanel>
+
+							<Grid>
+								<TextBlock x:Name="OpacityLabel" Text="{DynamicResource S.Editor.BgRef.Opacity}" />
+								<TextBlock x:Name="OpacityValue" HorizontalAlignment="Right" Foreground="{StaticResource Brush.TextDim}" />
+							</Grid>
+							<Slider x:Name="OpacitySlider" Style="{StaticResource EffectSlider}" Margin="0,1,0,0"
+									AutomationProperties.LabeledBy="{Binding ElementName=OpacityLabel}" ValueChanged="OnSliderChanged" />
+						</StackPanel>
+					</Grid>
+                </controls:GlassSurface>
+                <Popup x:Name="ColorPopup" AllowsTransparency="True" Placement="Bottom" StaysOpen="False"
+					   VerticalOffset="5" Opened="OnColorPopupOpened">
+					<Border CornerRadius="20" BorderThickness="1" BorderBrush="{StaticResource Glass.Edge}"
+							Background="{DynamicResource Brush.Surface}" Padding="14" PreviewKeyDown="OnColorPopupKeyDown">
+						<StackPanel Width="195">
+							<controls:ColorWheelControl x:Name="ColorEditor" ShowEyedropper="False" />
+							<Button Style="{StaticResource Style.Button}" Margin="0,13,0,0"
+									Content="{DynamicResource S.Effects.Done}" Click="OnColorDoneClick" />
+						</StackPanel>
+					</Border>
+				</Popup>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>

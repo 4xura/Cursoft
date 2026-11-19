@@ -1,0 +1,242 @@
+<Window x:Class="Cursoft.Views.PresetEditorWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:controls="clr-namespace:Cursoft.Controls"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="{DynamicResource S.Editor.TitleNew}"
+		Width="760" Height="640" MinWidth="480" MinHeight="480"
+		Style="{StaticResource Style.Window}"
+		WindowStartupLocation="CenterOwner"
+		ShowInTaskbar="False"
+		AllowDrop="True"
+		DragEnter="OnPresetWindowDragEnter"
+		DragLeave="OnPresetWindowDragLeave"
+		Drop="OnPresetWindowDrop">
+
+	<Window.Resources>
+		<Style x:Key="Style.BrowseFolderButton" TargetType="Button" BasedOn="{StaticResource Style.Button}">
+			<Setter Property="Padding" Value="16,10" />
+			<Setter Property="Template">
+				<Setter.Value>
+					<ControlTemplate TargetType="Button">
+						<Border x:Name="Bd"
+								Background="{TemplateBinding Background}"
+								BorderBrush="{TemplateBinding BorderBrush}"
+								BorderThickness="{TemplateBinding BorderThickness}"
+								CornerRadius="6"
+								Padding="{TemplateBinding Padding}">
+							<StackPanel HorizontalAlignment="Center" VerticalAlignment="Center">
+								<Rectangle x:Name="IconRect" Width="52" Height="52" Fill="White">
+									<Rectangle.OpacityMask>
+										<ImageBrush ImageSource="pack://application:,,,/Resources/OpenFolder52.png" />
+									</Rectangle.OpacityMask>
+								</Rectangle>
+								<ContentPresenter HorizontalAlignment="Center" Margin="0,6,0,0" />
+							</StackPanel>
+						</Border>
+						<ControlTemplate.Triggers>
+							<Trigger Property="IsMouseOver" Value="True">
+								<Setter TargetName="Bd" Property="Background"
+										Value="{StaticResource Brush.SurfaceHover}" />
+								<Setter TargetName="IconRect" Property="Fill"
+										Value="{StaticResource Brush.Accent}" />
+							</Trigger>
+							<Trigger Property="IsEnabled" Value="False">
+								<Setter Property="Opacity" Value="0.45" />
+							</Trigger>
+						</ControlTemplate.Triggers>
+					</ControlTemplate>
+				</Setter.Value>
+			</Setter>
+		</Style>
+	</Window.Resources>
+
+	<Grid x:Name="EditorRootGrid" PreviewMouseDown="OnRootPreviewMouseDown">
+	<DockPanel x:Name="RootPanel">
+		<DockPanel.LayoutTransform>
+			<ScaleTransform x:Name="UiScaleTransform" ScaleX="1" ScaleY="1" />
+		</DockPanel.LayoutTransform>
+
+		<Border DockPanel.Dock="Top"
+				Background="{StaticResource Brush.Surface}"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="0,0,0,1"
+				Padding="16,8">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+				<TextBlock Grid.Column="0"
+								Foreground="{StaticResource Brush.TextDim}"
+								VerticalAlignment="Center" Margin="0,0,8,0">
+								<Run Text="{DynamicResource S.Editor.Author}" /><Run Text=":" />
+								</TextBlock>
+				<StackPanel x:Name="AuthorDisplayPanel" Grid.Column="1" Orientation="Horizontal">
+					<TextBlock x:Name="AuthorDisplayText"
+							 Text=""
+							 Foreground="{StaticResource Brush.TextDim}"
+							 VerticalAlignment="Center" />
+					<Button x:Name="AuthorEditButton"
+							Style="{StaticResource Style.PencilButton}"
+							ToolTip="{DynamicResource S.Editor.Author.Tooltip}"
+							Click="OnAuthorEditButtonClick"
+							Margin="4,0,0,0"
+							VerticalAlignment="Center">
+						<TextBlock Style="{StaticResource Style.PencilIcon}" />
+					</Button>
+				</StackPanel>
+				<TextBox x:Name="AuthorEditBox" Grid.Column="1"
+							 Style="{StaticResource Style.TextBox}"
+							 VerticalAlignment="Center" MinWidth="100" MaxLength="60"
+							 ToolTip="{DynamicResource S.Editor.Author.Tooltip}"
+							 Visibility="Collapsed"
+							 KeyDown="OnAuthorEditBoxKeyDown"
+							 LostFocus="OnAuthorEditBoxLostFocus" />
+				<Button Grid.Column="2"
+						Style="{StaticResource Style.Button}"
+						Padding="8,6"
+						Width="36"
+						ToolTip="{DynamicResource S.Info.Tooltip}"
+						Click="OnInfoButtonClick"
+						Margin="8,0,0,0">
+					<TextBlock Text="ⓘ" FontSize="15" />
+				</Button>
+			</Grid>
+		</Border>
+
+
+		<Border DockPanel.Dock="Bottom"
+				Background="{StaticResource Brush.Surface}"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="0,1,0,0"
+				Padding="16,12">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<StackPanel Grid.Column="0" Orientation="Horizontal" Margin="0,0,8,0">
+					<Button x:Name="DownloadPresetButton"
+							Style="{StaticResource Style.Button}"
+							ToolTip="{DynamicResource S.Editor.DownloadPreset.Tooltip}"
+							Width="32" Height="32" Padding="0"
+							Click="OnDownloadPresetClick">
+						<Rectangle Width="16" Height="16" Fill="{StaticResource Brush.Text}">
+							<Rectangle.OpacityMask>
+								<ImageBrush ImageSource="pack://application:,,,/Resources/DownloadIcon32.png" />
+							</Rectangle.OpacityMask>
+						</Rectangle>
+					</Button>
+					<Button x:Name="DownloadPresetMoreButton"
+							Style="{StaticResource Style.Button}"
+							Content="▾"
+							Width="20" Height="32" Padding="0"
+							Margin="1,0,0,0"
+							ToolTip="{DynamicResource S.Export.MoreOptions.Tooltip}"
+							Click="OnDownloadPresetMoreClick" />
+				</StackPanel>
+				<TextBlock Grid.Column="1"
+							 Text="{DynamicResource S.Editor.PresetName}"
+							 Foreground="{StaticResource Brush.TextDim}"
+							 VerticalAlignment="Center" Margin="0,0,8,0" />
+				<TextBox x:Name="NameBox" Grid.Column="2"
+						 Style="{StaticResource Style.TextBox}"
+						 VerticalAlignment="Center" MaxLength="60" />
+
+				<Button Grid.Column="3"
+						Style="{StaticResource Style.Button}"
+						Content="{DynamicResource S.Editor.Cancel}"
+						Margin="12,0,8,0" MinWidth="90"
+						IsCancel="True" />
+				<Button Grid.Column="4"
+						Style="{StaticResource Style.AccentButton}"
+						Content="{DynamicResource S.Editor.Save}"
+						MinWidth="110"
+						IsDefault="True"
+						Click="OnSaveButtonClick" />
+			</Grid>
+		</Border>
+
+		<Border DockPanel.Dock="Bottom"
+				Background="{StaticResource Brush.Surface}"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="0,1,0,0"
+				Padding="16,10">
+			<Border Style="{StaticResource Style.GroupBorder}">
+				<Grid VerticalAlignment="Center">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="{DynamicResource S.CursorSize}"
+								 Foreground="{StaticResource Brush.TextDim}"
+								 VerticalAlignment="Center" />
+					<Slider x:Name="EditorSizeSlider" Grid.Column="1"
+							Style="{StaticResource Style.Slider}"
+							MinWidth="90" Margin="8,0"
+							Minimum="1" Maximum="15"
+							TickFrequency="1" IsSnapToTickEnabled="True"
+							VerticalAlignment="Center"
+							ValueChanged="OnEditorSizeSliderValueChanged" />
+					<TextBlock x:Name="EditorSizeValueText" Grid.Column="2"
+								 Width="46"
+								 Foreground="{StaticResource Brush.TextDim}"
+								 VerticalAlignment="Center" />
+					<TextBlock Grid.Column="3" VerticalAlignment="Center" Margin="6,0" Text="{DynamicResource S.Resize.Label}"/>
+                    <controls:ResizeMethodPicker x:Name="EditorResizeMethod" Grid.Column="4" Style="{StaticResource Style.ComboBox}"
+                              AutomationProperties.Name="{DynamicResource S.Resize.Label}" SelectionChanged="OnEditorResizeMethodChanged"/>
+				</Grid>
+			</Border>
+		</Border>
+
+		<TextBlock DockPanel.Dock="Top"
+					 Text="{DynamicResource S.Editor.SlotHint}"
+					 Foreground="{StaticResource Brush.TextDim}"
+					 Margin="16,12,16,4" />
+		<Border x:Name="FolderDropZone"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="2"
+				CornerRadius="10"
+				Margin="16,4,16,8"
+				AllowDrop="True"
+				DragOver="OnFolderDragOver"
+				Drop="OnFolderDrop">
+			<Grid>
+				<StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+					<Button Style="{StaticResource Style.BrowseFolderButton}"
+							Content="{DynamicResource S.Editor.BrowseFolder}"
+							Click="OnBrowseFolderClick" />
+				</StackPanel>
+				<Rectangle x:Name="FolderDropIndicator"
+						   Stroke="{StaticResource Brush.Accent}"
+						   StrokeThickness="3"
+						   StrokeDashArray="4 2"
+						   RadiusX="8" RadiusY="8"
+						   Margin="2"
+						   IsHitTestVisible="False"
+						   Visibility="Collapsed" />
+			</Grid>
+		</Border>
+
+		<ScrollViewer VerticalScrollBarVisibility="Auto" Padding="10,4">
+			<ItemsControl x:Name="Slots">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<WrapPanel />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+			</ItemsControl>
+		</ScrollViewer>
+
+	</DockPanel>
+	</Grid>
+</Window>

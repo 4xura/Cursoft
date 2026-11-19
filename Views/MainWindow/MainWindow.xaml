@@ -1,0 +1,292 @@
+<Window x:Class="Cursoft.Views.MainWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		xmlns:local="clr-namespace:Cursoft"
+        xmlns:controls="clr-namespace:Cursoft.Controls"
+		xmlns:services="clr-namespace:Cursoft.Services"
+		Title="{DynamicResource S.AppTitle}"
+		Icon="pack://application:,,,/cursoft-logo.ico"
+		Width="860" Height="640" MinWidth="720" MinHeight="440"
+		Style="{StaticResource Style.Window}"
+		AllowDrop="True"
+		Drop="OnWindowDrop"
+		DragOver="OnWindowDragOver"
+		DragEnter="OnWindowDragEnter"
+		DragLeave="OnWindowDragLeave">
+
+	<Window.Resources>
+		<Storyboard x:Key="SpinnerStoryboard" RepeatBehavior="Forever">
+			<DoubleAnimation Storyboard.TargetName="SpinnerRotate"
+							  Storyboard.TargetProperty="Angle"
+							  From="0" To="360" Duration="0:0:0.8" />
+		</Storyboard>
+	</Window.Resources>
+
+	<Grid x:Name="RootGrid">
+
+    <Border x:Name="GlassBackdrop" Background="{StaticResource Glass.Art}" IsHitTestVisible="False"/>
+    <Border Background="{DynamicResource Glass.Wash}" IsHitTestVisible="False"/>
+    <DockPanel x:Name="RootPanel" Margin="24,14,24,16">
+        <DockPanel.LayoutTransform><ScaleTransform x:Name="UiScaleTransform" /></DockPanel.LayoutTransform>
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,18">
+            <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" HorizontalAlignment="Left">
+                <Button Click="OnAppLogoClick" Style="{StaticResource Style.GhostButton}" Padding="0"
+                        AutomationProperties.Name="{DynamicResource S.AppLogo.RandomTooltip}" ToolTip="{DynamicResource S.AppLogo.RandomTooltip}">
+                    <Image Width="44" Height="44" RenderOptions.BitmapScalingMode="HighQuality">
+                        <Image.Source><BitmapImage UriSource="/cursoft-logo.png" DecodePixelWidth="144"/></Image.Source>
+                    </Image>
+                </Button>
+                <Button x:Name="AboutButton" Click="OnAboutClick" Style="{StaticResource Style.GhostButton}" Padding="6,1"
+                        ToolTip="{DynamicResource S.About.Title}" AutomationProperties.Name="{DynamicResource S.About.Title}">
+                    <TextBlock Text="Cursoft" FontFamily="Bahnschrift SemiBold, Segoe UI" FontSize="30"/>
+                </Button>
+            </StackPanel>
+            <Button x:Name="CursorEffectsButton" Grid.Column="1" Style="{StaticResource Style.ToolbarAction}" Margin="6,0,10,0"
+                    Height="40" Padding="16,0" VerticalAlignment="Center" Click="OnCursorEffectsClick"
+                    AutomationProperties.Name="{DynamicResource S.Effects.Title}" ToolTip="{DynamicResource S.Effects.Tooltip}">
+                <StackPanel Orientation="Horizontal">
+                    <Path Width="16" Height="16" Stretch="Uniform" Stroke="{DynamicResource Brush.Accent}" StrokeThickness="1.5"
+                          Data="M7,1 L8.7,5.3 L13,7 L8.7,8.7 L7,13 L5.3,8.7 L1,7 L5.3,5.3 Z M14,9 V15 M11,12 H17"/>
+                    <TextBlock Text="{DynamicResource S.Effects.Open}" Margin="8,0,0,0" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Button>
+            <controls:GlassSurface Grid.Column="2" CornerRadius="20" Padding="3" VerticalAlignment="Center">
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="ThemeToggleButton" Style="{StaticResource Style.ToolButton}" ToolTip="{DynamicResource S.Theme.ToggleTooltip}" Click="OnThemeToggleClick">
+                        <Path x:Name="ThemeToggleIcon" Width="16" Height="16" Stretch="Uniform"
+                              Stroke="{DynamicResource Brush.Text}" StrokeThickness="1.5" StrokeLineJoin="Round"
+                              StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    </Button>
+                    <Button x:Name="LanguageButton" Style="{StaticResource Style.ToolButton}" ToolTip="{DynamicResource S.Language.Tooltip}" Click="OnLanguageButtonClick">
+                        <TextBlock x:Name="LanguageButtonText" FontWeight="SemiBold"/>
+                    </Button>
+                    <Button x:Name="CloseOptionsButton" Style="{StaticResource Style.ToolButton}" Click="OnCloseOptionsClick"
+                            ToolTip="{DynamicResource S.Close.Options}" AutomationProperties.Name="{DynamicResource S.Close.Options}">
+                        <Path Data="M0,3 H13 M0,9 H13 M0,15 H13 M4,0 V6 M9,6 V12 M5,12 V18"
+                              Width="14" Height="14" Stretch="Uniform"
+                              Stroke="{DynamicResource Brush.Text}" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    </Button>
+                    <Button Style="{StaticResource Style.ToolButton}" ToolTip="{DynamicResource S.Info.Tooltip}" Click="OnInfoButtonClick"
+                            AutomationProperties.Name="{DynamicResource S.Info.Tooltip}">
+                        <Path Data="M16,8 A8,8 0 1 1 0,8 A8,8 0 1 1 16,8 M8,7 V12 M8,4 V4.25"
+                              Width="15" Height="15" Stretch="Uniform" Stroke="{DynamicResource Brush.Text}"
+                              StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    </Button>
+                </StackPanel>
+            </controls:GlassSurface>
+        </Grid>
+        <DockPanel DockPanel.Dock="Bottom" Margin="0,10,0,0" LastChildFill="False">
+            <controls:GlassSurface DockPanel.Dock="Left" CornerRadius="20" Padding="14,0">
+                <CheckBox x:Name="StartupCheckBox" Style="{StaticResource Style.ToggleCheckBox}"
+                          Content="{DynamicResource S.Startup.Label}" ToolTip="{DynamicResource S.Startup.Hint}"
+                          Checked="OnStartupChanged" Unchecked="OnStartupChanged"/>
+            </controls:GlassSurface>
+            <controls:GlassSurface DockPanel.Dock="Right" CornerRadius="22" Padding="7,3">
+                <StackPanel Orientation="Horizontal">
+                    <Button x:Name="OpenFolderToggle" Style="{StaticResource Style.ToolButton}" Margin="0,0,6,0" ToolTip="{DynamicResource S.OpenFolderAfterDownload.Tooltip}" Click="OnOpenFolderToggleClick">
+                        <Rectangle x:Name="OpenFolderIcon" Width="16" Height="16" Fill="{DynamicResource Brush.Accent}">
+                            <Rectangle.OpacityMask><ImageBrush ImageSource="/Resources/OpenFolderIcon32.png" Stretch="Uniform"/></Rectangle.OpacityMask>
+                        </Rectangle>
+                    </Button>
+                    <Button x:Name="UiZoomOutButton" Style="{StaticResource Style.ToolButton}" ToolTip="{DynamicResource S.UiZoom.OutTooltip}"
+                            AutomationProperties.Name="{DynamicResource S.UiZoom.OutTooltip}" Click="OnUiZoomOutClick">
+                        <Rectangle Width="11" Height="1.5" RadiusX=".75" RadiusY=".75" Fill="{DynamicResource Brush.Text}"/>
+                    </Button>
+                    <TextBlock x:Name="UiZoomText" FontSize="12" VerticalAlignment="Center" TextAlignment="Center" MinWidth="38"/>
+                    <Button x:Name="UiZoomInButton" Style="{StaticResource Style.ToolButton}" ToolTip="{DynamicResource S.UiZoom.InTooltip}"
+                            AutomationProperties.Name="{DynamicResource S.UiZoom.InTooltip}" Click="OnUiZoomInClick">
+                        <Path Data="M0,5 H10 M5,0 V10" Width="12" Height="12" Stretch="Uniform"
+                              Stroke="{DynamicResource Brush.Text}" StrokeThickness="1.5" StrokeStartLineCap="Round" StrokeEndLineCap="Round"/>
+                    </Button>
+                </StackPanel>
+            </controls:GlassSurface>
+        </DockPanel>
+        <Border x:Name="GroupToolbar" DockPanel.Dock="Bottom"
+				Background="{DynamicResource Glass.Tint}" CornerRadius="16" Margin="14,4"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="0,1,0,0"
+				Padding="16,10"
+				Visibility="Collapsed">
+			<Grid VerticalAlignment="Center">
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock x:Name="GroupSelectionCountText" Grid.Column="0"
+						   Foreground="{StaticResource Brush.TextDim}"
+						   VerticalAlignment="Center" Margin="0,0,16,0" />
+
+				<WrapPanel x:Name="GroupColorSwatches" Grid.Column="1"
+						   Orientation="Horizontal"
+						   VerticalAlignment="Center"
+						   Margin="0,0,16,0" />
+
+				<TextBox x:Name="GroupNameBox" Grid.Column="2"
+						 Style="{StaticResource Style.TextBox}"
+						 VerticalAlignment="Center"
+						 MaxLength="60"
+						 Margin="0,0,12,0" />
+
+				<Button x:Name="GroupCancelButton" Grid.Column="3"
+						Style="{StaticResource Style.Button}"
+						Content="{DynamicResource S.Group.Cancel}"
+						Margin="0,0,8,0" MinWidth="90"
+						Click="OnGroupCancelClick" />
+
+				<Button x:Name="GroupCreateButton" Grid.Column="4"
+						Style="{StaticResource Style.AccentButton}"
+						Content="{DynamicResource S.Group.Create}"
+						MinWidth="110"
+						Click="OnGroupCreateClick" />
+			</Grid>
+		</Border>
+
+
+        <Grid DockPanel.Dock="Top" Margin="0,0,0,16">
+            <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="Auto"/></Grid.ColumnDefinitions>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text="{DynamicResource S.Library}" FontSize="27" FontFamily="Segoe UI Semibold" VerticalAlignment="Center"/>
+                <Border CornerRadius="10" Padding="8,1" Margin="9,0,0,0" VerticalAlignment="Center" Background="{DynamicResource Glass.Pill}">
+                    <TextBlock x:Name="PresetCount" FontSize="12" Foreground="{DynamicResource Brush.TextDim}"/>
+                </Border>
+            </StackPanel>
+            <StackPanel Grid.Column="1" Orientation="Horizontal" VerticalAlignment="Center">
+                <Button x:Name="ImportButton" Style="{StaticResource Style.Button}" MinWidth="78" Height="34" Margin="0,0,8,0"
+                        Content="{DynamicResource S.Import.Confirm}" ToolTip="{DynamicResource S.Import.Tooltip}" Click="OnImportButtonClick"/>
+                <Button x:Name="ExportButton" Style="{StaticResource Style.Button}" MinWidth="78" Height="34"
+                        Content="{DynamicResource S.Library.Export}" ToolTip="{DynamicResource S.Export.Tooltip}" Click="OnExportButtonClick"/>
+            </StackPanel>
+        </Grid>
+        <Grid>
+            <Grid.ColumnDefinitions><ColumnDefinition/><ColumnDefinition Width="16"/><ColumnDefinition Width=".46*" MinWidth="168" MaxWidth="226"/></Grid.ColumnDefinitions>
+            <DockPanel>
+                <ScrollViewer x:Name="GalleryScroll" Background="Transparent" VerticalScrollBarVisibility="Auto" Padding="0,0,5,8" MouseRightButtonUp="OnGalleryRightClick">
+			<StackPanel Background="Transparent">
+
+				<ItemsControl x:Name="Gallery" Background="Transparent">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+			</StackPanel>
+		</ScrollViewer>
+            </DockPanel>
+            <controls:GlassSurface Grid.Column="2" CornerRadius="20" VerticalAlignment="Top" Padding="18">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Disabled">
+                    <StackPanel>
+                        <TextBlock Text="{DynamicResource S.CursorSize}" Foreground="{DynamicResource Brush.TextDim}" FontWeight="SemiBold"/>
+                        <TextBlock x:Name="SizeValueText" FontSize="36" FontFamily="Segoe UI Light" Margin="0,1,0,3"/>
+                        <Slider x:Name="SizeSlider" Style="{StaticResource Style.Slider}" Minimum="1" Maximum="15" TickFrequency="1"
+                                IsSnapToTickEnabled="True" IsMoveToPointEnabled="True" AutomationProperties.Name="{DynamicResource S.CursorSize}" ValueChanged="OnSizeSliderValueChanged"/>
+                        <TextBlock x:Name="ResizeMethodLabel" Text="{DynamicResource S.Resize.Label}" FontWeight="SemiBold" Margin="0,14,0,6"/>
+                        <controls:ResizeMethodPicker x:Name="ResizeMethod" Style="{StaticResource Style.ComboBox}" Margin="0,0,0,8"
+                                  AutomationProperties.LabeledBy="{Binding ElementName=ResizeMethodLabel}" SelectionChanged="OnResizeMethodChanged"/>
+                        <TextBlock x:Name="ResizeHint" Text="{DynamicResource S.Resize.Hint}" Foreground="{DynamicResource Brush.TextDim}" FontSize="12" TextWrapping="Wrap" Margin="0,0,0,12"/>
+                        <UniformGrid Rows="1">
+                            <Button x:Name="ApplySizeButton" Style="{StaticResource Style.Button}" Padding="8,7" Margin="0,0,4,0"
+                                    Content="{DynamicResource S.ApplySize}" ToolTip="{DynamicResource S.ApplySize.Tooltip}" Click="OnApplySizeButtonClick"/>
+                            <Button x:Name="UndoButton" Style="{StaticResource Style.Button}" Margin="4,0,0,0" Content="{DynamicResource S.Undo}"
+                                    ToolTip="{DynamicResource S.Undo.Tooltip}" Click="OnUndoButtonClick"/>
+                        </UniformGrid>
+                        <Border Height="1" Background="{StaticResource Glass.Edge}" Margin="0,18"/>
+                        <DockPanel>
+                            <TextBlock x:Name="CellScaleValueText" DockPanel.Dock="Right" Foreground="{DynamicResource Brush.TextDim}"/>
+                            <TextBlock Text="{DynamicResource S.GallerySize}" FontWeight="SemiBold"/>
+                        </DockPanel>
+                        <Slider x:Name="CellScaleSlider" Style="{StaticResource Style.Slider}" Margin="0,7,0,0"
+                                Minimum="{x:Static services:AppState.GalleryCellScaleMin}" Maximum="{x:Static services:AppState.GalleryCellScaleMax}"
+                                TickFrequency=".1" IsSnapToTickEnabled="True" IsMoveToPointEnabled="True"
+                                AutomationProperties.Name="{DynamicResource S.GallerySize}" ValueChanged="OnCellScaleSliderValueChanged"/>
+                    </StackPanel>
+                </ScrollViewer>
+            </controls:GlassSurface>
+        </Grid>
+    </DockPanel>
+
+	<Rectangle x:Name="WindowDropIndicator"
+			   Stroke="{StaticResource Brush.Accent}"
+			   StrokeThickness="4"
+			   StrokeDashArray="6 3"
+			   Margin="4"
+			   IsHitTestVisible="False"
+			   Visibility="Collapsed"
+			   Panel.ZIndex="900" />
+
+	<Rectangle x:Name="GroupAttachIndicator"
+			   StrokeThickness="1.5"
+			   StrokeDashArray="4 3"
+			   RadiusX="14" RadiusY="14"
+			   IsHitTestVisible="False"
+			   Visibility="Collapsed"
+			   Panel.ZIndex="955"
+			   HorizontalAlignment="Left"
+			   VerticalAlignment="Top">
+		<Rectangle.RenderTransform>
+			<TranslateTransform x:Name="GroupAttachIndicatorTransform" />
+		</Rectangle.RenderTransform>
+	</Rectangle>
+
+	<Rectangle x:Name="ReorderInsertionLine"
+			   Fill="{StaticResource Brush.Accent}"
+			   Width="4"
+			   RadiusX="2" RadiusY="2"
+			   IsHitTestVisible="False"
+			   Visibility="Collapsed"
+			   Panel.ZIndex="950"
+			   HorizontalAlignment="Left"
+			   VerticalAlignment="Top">
+		<Rectangle.RenderTransform>
+			<TranslateTransform x:Name="ReorderInsertionLineTransform" />
+		</Rectangle.RenderTransform>
+	</Rectangle>
+
+	<Border x:Name="DragGhost"
+			IsHitTestVisible="False"
+			Visibility="Collapsed"
+			Opacity="0.85"
+			Panel.ZIndex="960"
+			HorizontalAlignment="Left"
+			VerticalAlignment="Top"
+			CornerRadius="10"
+			BorderThickness="2"
+			Background="{StaticResource Brush.Surface}"
+			BorderBrush="{StaticResource Brush.Accent}">
+		<Border.RenderTransform>
+			<TranslateTransform x:Name="DragGhostTransform" />
+		</Border.RenderTransform>
+		<StackPanel VerticalAlignment="Center">
+			<Image x:Name="DragGhostImage" SnapsToDevicePixels="True" />
+			<TextBlock x:Name="DragGhostText"
+					   TextTrimming="CharacterEllipsis"
+					   TextAlignment="Center"
+					   Margin="4,8,4,0" />
+		</StackPanel>
+	</Border>
+
+	<Border x:Name="LoadingOverlay"
+			Background="#B3000000"
+			Visibility="Collapsed"
+			IsHitTestVisible="False"
+			Panel.ZIndex="1000">
+		<Ellipse Width="48" Height="48"
+				 Stroke="{StaticResource Brush.Accent}"
+				 StrokeThickness="4"
+				 StrokeStartLineCap="Round"
+				 StrokeEndLineCap="Round"
+				 StrokeDashArray="28,9"
+				 RenderTransformOrigin="0.5,0.5">
+			<Ellipse.RenderTransform>
+				<RotateTransform x:Name="SpinnerRotate" Angle="0" />
+			</Ellipse.RenderTransform>
+		</Ellipse>
+	</Border>
+
+	</Grid>
+</Window>

@@ -1,0 +1,8 @@
+<Project>
+  <PropertyGroup>
+    <!-- Keep SDK/WPF intermediates out of the source and distribution folders. -->
+    <ArtifactsPath>$(LOCALAPPDATA)\Cursoft.Build\$([MSBuild]::StableStringHash('$(MSBuildThisFileDirectory)'))</ArtifactsPath>
+    <UseArtifactsOutput>true</UseArtifactsOutput>
+    <DefaultItemExcludes>$(DefaultItemExcludes);release\**;bin\**;obj\**</DefaultItemExcludes>
+  </PropertyGroup>
+</Project>

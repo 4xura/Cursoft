@@ -1,0 +1,364 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:sys="clr-namespace:System;assembly=mscorlib"
+					xml:space="preserve">
+
+	<sys:String x:Key="S.AppTitle">Cursoft</sys:String>
+	<sys:String x:Key="S.AppLogo.RandomTooltip">Случайный курсор со всей доски</sys:String>
+
+	<sys:String x:Key="S.Toast.Saved">Пресет сохранён</sys:String>
+	<sys:String x:Key="S.Toast.Downloaded">Скачано: {0}</sys:String>
+	<sys:String x:Key="S.Toast.PresetDownloaded">Пресет «{0}» скачан в «Загрузки» ({1} шт.)</sys:String>
+	<sys:String x:Key="S.Toast.SizeApplied">Размер курсора применён</sys:String>
+	<sys:String x:Key="S.Toast.IconSizeAppliedAll">Размеры иконок применены</sys:String>
+	<sys:String x:Key="S.Toast.IconSizeAppliedOne">Размер {0} применён</sys:String>
+
+	<sys:String x:Key="S.About.Title">О программе</sys:String>
+	<sys:String x:Key="S.About.Close">Закрыть</sys:String>
+	<sys:String x:Key="S.About.LicenseHint">MIT License — нажмите для подробностей</sys:String>
+
+	<sys:String x:Key="S.ResetDefault">Курсор по умолчанию</sys:String>
+	<sys:String x:Key="S.ResetDefault.Tooltip">Вернуть стандартные курсоры Windows (не зависит от пресетов)</sys:String>
+	<sys:String x:Key="S.Undo">Назад</sys:String>
+	<sys:String x:Key="S.Undo.Tooltip">Вернуться к предыдущему варианту курсоров</sys:String>
+	<sys:String x:Key="S.CursorSize">Размер курсора</sys:String>
+	<sys:String x:Key="S.Effects.Title">Эффекты курсора</sys:String>
+	<sys:String x:Key="S.Effects.Open">Эффекты</sys:String>
+	<sys:String x:Key="S.Effects.Tooltip">Настроить эффекты курсора на рабочем столе</sys:String>
+	<sys:String x:Key="S.Effects.Error">Не удалось применить эффект курсора.&#x0a;{0}</sys:String>
+	<sys:String x:Key="S.Effects.Off">Выкл.</sys:String>
+	<sys:String x:Key="S.Effects.Glow">Свечение</sys:String>
+	<sys:String x:Key="S.Effects.Ribbon">Лента</sys:String>
+	<sys:String x:Key="S.Effects.CycleColors">Циклическая смена цвета</sys:String>
+	<sys:String x:Key="S.Effects.Sparks">Искры</sys:String>
+	<sys:String x:Key="S.Effects.OffHint">Выберите эффект, чтобы его настроить.</sys:String>
+	<sys:String x:Key="S.Effects.Primary">Основной цвет</sys:String>
+	<sys:String x:Key="S.Effects.Accent">Дополнительный цвет</sys:String>
+	<sys:String x:Key="S.Effects.Shape">Форма</sys:String>
+	<sys:String x:Key="S.Effects.Halo">Мягкий ореол</sys:String>
+	<sys:String x:Key="S.Effects.Ring">Кольцо</sys:String>
+	<sys:String x:Key="S.Effects.Crosshair">Перекрестие</sys:String>
+	<sys:String x:Key="S.Effects.Radius">Радиус</sys:String>
+	<sys:String x:Key="S.Effects.Length">Длина следа</sys:String>
+	<sys:String x:Key="S.Effects.Spread">Разброс</sys:String>
+	<sys:String x:Key="S.Effects.Thickness">Толщина линии</sys:String>
+	<sys:String x:Key="S.Effects.ParticleSize">Размер частиц</sys:String>
+	<sys:String x:Key="S.Effects.Preview">Предпросмотр</sys:String>
+	<sys:String x:Key="S.Effects.PreviewHint">Подвигайте здесь указателем, чтобы попробовать</sys:String>
+	<sys:String x:Key="S.Effects.Done">Готово</sys:String>
+	<sys:String x:Key="S.Effects.Reset">Сбросить эффект</sys:String>
+	<sys:String x:Key="S.Effects.Apply">Применить</sys:String>
+	<sys:String x:Key="S.Tray.Open">Открыть Cursoft</sys:String>
+	<sys:String x:Key="S.Tray.Exit">Выход</sys:String>
+	<sys:String x:Key="S.ApplySize">Применить</sys:String>
+	<sys:String x:Key="S.ApplySize.Tooltip">Применить выбранный размер курсора</sys:String>
+	<sys:String x:Key="S.ScaleCursors">Масштаб</sys:String>
+	<sys:String x:Key="S.ScaleCursors.Tooltip">Пред-масштабировать файлы курсоров ближайшим соседом перед применением, чтобы избежать билинейной фильтрации Windows</sys:String>
+	<sys:String x:Key="S.GallerySize">Размер сетки</sys:String>
+	<sys:String x:Key="S.UiZoom.OutTooltip">Уменьшить интерфейс</sys:String>
+	<sys:String x:Key="S.UiZoom.InTooltip">Увеличить интерфейс</sys:String>
+	<sys:String x:Key="S.Theme.ToggleTooltip">Переключить тему оформления</sys:String>
+	<sys:String x:Key="S.Language.Tooltip">Язык интерфейса</sys:String>
+
+	<sys:String x:Key="S.AddPreset">Добавить пресет</sys:String>
+	<sys:String x:Key="S.AddPreset.Hint">Перетащите .cur/.ani файлы или папку сюда</sys:String>
+	<sys:String x:Key="S.EmptyGallery">Пресетов пока нет. Перетащите файлы курсоров (.cur/.ani) в окно или нажмите «Добавить пресет».</sys:String>
+
+	<sys:String x:Key="S.Menu.Edit">Изменить</sys:String>
+	<sys:String x:Key="S.Menu.Rename">Переименовать</sys:String>
+	<sys:String x:Key="S.Menu.MoveLeft">Переместить влево</sys:String>
+	<sys:String x:Key="S.Menu.MoveRight">Переместить вправо</sys:String>
+	<sys:String x:Key="S.Menu.Download">Скачать пресет</sys:String>
+	<sys:String x:Key="S.Menu.UseScaling">Использовать масштабирование</sys:String>
+	<sys:String x:Key="S.Menu.ScaleMode.Nearest">Режим масштабирования: Ближайший</sys:String>
+	<sys:String x:Key="S.Menu.ScaleMode.Smooth">Режим масштабирования: Сглаженный</sys:String>
+	<sys:String x:Key="S.Menu.Delete">Удалить</sys:String>
+	<sys:String x:Key="S.Preset.ContextHint">ПКМ — меню</sys:String>
+	<sys:String x:Key="S.Gallery.MixedBadgeTooltip">Часть ролей взята из других пресетов</sys:String>
+
+	<sys:String x:Key="S.Menu.RemoveFromGroup">Убрать из группы</sys:String>
+	<sys:String x:Key="S.Menu.AssignToGroup">Добавить в группу</sys:String>
+	<sys:String x:Key="S.Menu.RenameGroup">Переименовать группу</sys:String>
+	<sys:String x:Key="S.Menu.EditGroup">Изменить группу</sys:String>
+	<sys:String x:Key="S.Menu.CreateGroup">Создать группу</sys:String>
+	<sys:String x:Key="S.Menu.Ungroup">Разгруппировать</sys:String>
+	<sys:String x:Key="S.Menu.DeleteGroup">Удалить группу</sys:String>
+	<sys:String x:Key="S.Menu.ConsolidateGroup">Собрать ячейки вместе</sys:String>
+	<sys:String x:Key="S.Menu.RandomPreset">Случайный выбор</sys:String>
+	<sys:String x:Key="S.Group.DefaultName">Группа</sys:String>
+	<sys:String x:Key="S.Group.SelectedCount">Выбрано: {0}</sys:String>
+	<sys:String x:Key="S.Group.MembersCount">Пресетов: {0}</sys:String>
+	<sys:String x:Key="S.Group.Create">Создать группу</sys:String>
+	<sys:String x:Key="S.Group.Cancel">Отмена</sys:String>
+	<sys:String x:Key="S.Group.CollapsedTooltip">Нажмите, чтобы развернуть</sys:String>
+	<sys:String x:Key="S.Group.ExpandedTooltip">Нажмите, чтобы свернуть</sys:String>
+	<sys:String x:Key="S.Group.Toast.Created">Группа «{0}» создана</sys:String>
+	<sys:String x:Key="S.Group.Toast.Consolidated">Группа «{0}» собрала ячейки вместе</sys:String>
+	<sys:String x:Key="S.Group.Toast.Ungrouped">Группа «{0}» разгруппирована</sys:String>
+	<sys:String x:Key="S.Group.Toast.Deleted">Группа «{0}» удалена</sys:String>
+	<sys:String x:Key="S.Group.Edit.Title">Изменение группы</sys:String>
+	<sys:String x:Key="S.Group.Edit.Name">Название группы</sys:String>
+	<sys:String x:Key="S.Group.Edit.Save">Сохранить</sys:String>
+
+	<sys:String x:Key="S.ConfirmDelete.Title">Удаление пресета</sys:String>
+	<sys:String x:Key="S.ConfirmDelete.Text">Удалить пресет «{0}»? Файлы будут стёрты из кэша приложения.</sys:String>
+
+	<sys:String x:Key="S.Editor.TitleNew">Новый пресет</sys:String>
+	<sys:String x:Key="S.Editor.TitleEdit">Изменение пресета</sys:String>
+	<sys:String x:Key="S.Editor.PresetName">Название пресета</sys:String>
+	<sys:String x:Key="S.Editor.Author">Автор</sys:String>
+	<sys:String x:Key="S.Editor.Author.Tooltip">Имя автора сохраняется в README и восстанавливается при импорте</sys:String>
+	<sys:String x:Key="S.Editor.FileNameEdit.Tooltip">Переименовать файл курсора (расширение сохраняется)</sys:String>
+	<sys:String x:Key="S.Editor.Save">Сохранить</sys:String>
+	<sys:String x:Key="S.Editor.Cancel">Отмена</sys:String>
+	<sys:String x:Key="S.Editor.ExportPng">Экспорт в PNG в загрузки</sys:String>
+	<sys:String x:Key="S.Editor.ExportGif">Экспорт анимации в GIF в загрузки</sys:String>
+	<sys:String x:Key="S.Editor.Browse">Обзор…</sys:String>
+	<sys:String x:Key="S.Editor.ClearSlot">Убрать</sys:String>
+	<sys:String x:Key="S.Editor.Pivot.Tooltip">Настроить точку опоры</sys:String>
+	<sys:String x:Key="S.Editor.Pivot.Disabled.Tooltip">Недоступно для связанных ролей</sys:String>
+	<sys:String x:Key="S.Editor.Position.Tooltip">Редактировать позицию спрайта и размер холста</sys:String>
+	<sys:String x:Key="S.Editor.Position.Disabled.Tooltip">Недоступно для связанных ролей</sys:String>
+	<sys:String x:Key="S.Editor.EmptySlot">системный</sys:String>
+	<sys:String x:Key="S.Editor.PlaceholderBadge">авто</sys:String>
+	<sys:String x:Key="S.Editor.SlotHint">Перетащите файл на слот, чтобы заменить роль</sys:String>
+	<sys:String x:Key="S.Editor.NoFiles">В пресете нет ни одного файла — заполните хотя бы один слот.</sys:String>
+	<sys:String x:Key="S.Editor.EmptyCursorWarning">Этот курсор пустой или полностью прозрачный. Его применение может привести к полному визуальному исчезновению мыши.</sys:String>
+	<sys:String x:Key="S.Editor.EmptySkipped">{0} пустых или прозрачных курсоров было пропущено во избежание исчезновения курсора мыши.</sys:String>
+	<sys:String x:Key="S.Editor.FileFilter">Курсоры и изображения (*.cur;*.ani;*.png;*.jpg;*.jpeg;*.bmp;*.gif)|*.cur;*.ani;*.png;*.jpg;*.jpeg;*.bmp;*.gif</sys:String>
+	<sys:String x:Key="S.Editor.BrowseFolder">Выбрать папку…</sys:String>
+	<sys:String x:Key="S.Editor.NoCursorInFolder">В выбранной папке нет файлов курсоров или изображений (.cur/.ani/.png/.jpg/.bmp/.gif).</sys:String>
+	<sys:String x:Key="S.Editor.NoMatchInFolder">Найдено {0} файлов курсоров, но ни один не удалось сопоставить с ролями по имени файла.</sys:String>
+	<sys:String x:Key="S.Editor.PickExisting">Выбрать из существующих</sys:String>
+	<sys:String x:Key="S.Editor.LinkedRole.Tooltip">Связано с: {0}</sys:String>
+	<sys:String x:Key="S.Editor.Lock.Tooltip">Заблокировать роль (защита от импорта папки и перетаскивания)</sys:String>
+	<sys:String x:Key="S.Editor.Unlock.Tooltip">Разблокировать роль</sys:String>
+	<sys:String x:Key="S.Editor.Download.Tooltip">Скачать в папку «Загрузки»</sys:String>
+	<sys:String x:Key="S.Editor.DownloadPreset.Tooltip">Скачать пресет</sys:String>
+
+	<sys:String x:Key="S.PresetPicker.Title">Выбор пресета</sys:String>
+	<sys:String x:Key="S.PresetPicker.Empty">Пока нет других пресетов, из которых можно выбрать роль.</sys:String>
+
+	<sys:String x:Key="S.RolePicker.Title">Выбор роли</sys:String>
+	<sys:String x:Key="S.RolePicker.OnlyCurrentRole">Показывать только текущую роль</sys:String>
+	<sys:String x:Key="S.RolePicker.RoleNotAssigned">В этом пресете роль не назначена</sys:String>
+
+	<sys:String x:Key="S.HotspotEditor.Title">Редактор точки клика</sys:String>
+	<sys:String x:Key="S.Hotspot.Hint">Перетащите маркер в точку, где должен срабатывать клик</sys:String>
+	<sys:String x:Key="S.Hotspot.Presets">Быстрая установка</sys:String>
+
+	<sys:String x:Key="S.Paint.Title">Графический редактор</sys:String>
+	<sys:String x:Key="S.Paint.EmptyWarning">Изображение пустое или полностью прозрачное. Это может привести к полному визуальному исчезновению курсора мыши.</sys:String>	<sys:String x:Key="S.Position.Hint">Переместите изображение по холсту или измените размер холста</sys:String>
+	<sys:String x:Key="S.Position.CanvasWidth">Ширина холста</sys:String>
+	<sys:String x:Key="S.Position.CanvasHeight">Высота холста</sys:String>
+	<sys:String x:Key="S.Position.ApplyCanvasSize">Применить</sys:String>
+	<sys:String x:Key="S.Position.ApplyCanvasSize.Tooltip">Изменить размер холста</sys:String>
+	<sys:String x:Key="S.Position.Move">Сдвинуть</sys:String>
+	<sys:String x:Key="S.Position.Snap">Прижать к краю</sys:String>
+	<sys:String x:Key="S.Position.ShowSpriteBounds">Границы спрайта</sys:String>
+
+	<sys:String x:Key="S.Editor.Tool.Move">Переместить (V)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Hand">Рука (H)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Brush">Кисть (B)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Eraser">Ластик (E)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Fill">Заливка (G)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Canvas">Холст (C)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Hotspot">Точка клика (O)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.BgRef">Реф-картинка (R)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizes">Размеры иконки (I)</sys:String>
+	<sys:String x:Key="S.Editor.Undo.Tooltip">Отменить (Ctrl+Z)</sys:String>
+	<sys:String x:Key="S.Editor.Redo.Tooltip">Вернуть (Ctrl+Y)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.ComingSoon">Скоро</sys:String>
+	<sys:String x:Key="S.Editor.Tool.EraserHint">Нажмите и перетащите, чтобы стереть пиксели.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.HotspotHint">Кликните по холсту, чтобы установить точку клика. Перетаскивайте для перемещения.</sys:String>
+	<sys:String x:Key="S.Editor.Color.Brightness">Яркость</sys:String>
+	<sys:String x:Key="S.Editor.Color.Alpha">Прозрачность</sys:String>
+	<sys:String x:Key="S.Editor.Color.Hue">Оттенок</sys:String>
+	<sys:String x:Key="S.Editor.Color.WheelMode">Цветовое колесо</sys:String>
+	<sys:String x:Key="S.Editor.Color.SquareMode">Цветовой квадрат</sys:String>
+	<sys:String x:Key="S.Editor.Color.Eyedropper">Взять цвет с экрана</sys:String>
+	<sys:String x:Key="S.Editor.Tool.HandHint">Зажмите и перетащите, чтобы перемещаться по холсту. Также можно в любой момент зажать среднюю кнопку мыши.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.CanvasHint">Потяните за края или углы холста, чтобы изменить размер, затем нажмите «Применить».</sys:String>
+	<sys:String x:Key="S.Editor.Tool.CanvasApply">Применить</sys:String>
+	<sys:String x:Key="S.Editor.Tool.BgRefHint">Картинка-референс для обводки. Не сохраняется в курсор.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesHint">Выберите размеры, которые нужно запечь в экспортируемый файл курсора.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesUnavailableHint">Размеры иконки доступны только для одного квадратного кадра.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesScaleMode">Режим масштабирования</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesSummary">Выбрано размеров: {0}</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesAdd">Добавить свой размер</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesScaleModeFor">Режим масштабирования — {0}×{0}</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesScaleReset">Сбросить к общему режиму масштабирования</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesApplyAll">Применить ко всем</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesGenerateDefaults">Сгенерировать подразмеры</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesApplyOne">Применить к {0}×{0}</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesEditMode">Редактировать размер</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.Opacity">Прозрачность</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.Margin">Отступ от краёв</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.Offset">Смещение от центра</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.LoadPng">Загрузить PNG…</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.ResetDefault">Сбросить к роли по умолчанию</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.ResetSettings">Сбросить настройки</sys:String>
+<sys:String x:Key="S.Editor.BgRef.Bilinear">Билинейная фильтрация</sys:String>
+<sys:String x:Key="S.Editor.BgRef.HideMain">Скрыть основное изображение</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FrameNav">Кадр референса</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FramePrev">Предыдущий кадр</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FrameNext">Следующий кадр</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FrameReset">Сброс к кадру 0</sys:String>
+<sys:String x:Key="S.Editor.Timeline.Play">Воспроизвести / Остановить</sys:String>
+<sys:String x:Key="S.Editor.Timeline.AddFrame">Добавить кадр</sys:String>
+<sys:String x:Key="S.Editor.Timeline.RemoveFrame">Удалить кадр</sys:String>
+<sys:String x:Key="S.Editor.Timeline.Duration">Длительность, мс:</sys:String>
+<sys:String x:Key="S.Editor.Timeline.UseForAll">Для всех</sys:String>
+<sys:String x:Key="S.Editor.Timeline.ManualRef">Ручное управление рефом</sys:String>
+<sys:String x:Key="S.Editor.Timeline.LimitNote">До 60 кадров, минимум 17 мс на кадр (ограничение формата .ani)</sys:String>
+	<sys:String x:Key="S.ImportImage.Tooltip">Загрузить файл в холст (можно перетащить)</sys:String>
+	<sys:String x:Key="S.ImportImage.Button">Загрузить файл</sys:String>
+	<sys:String x:Key="S.ImportImage.Title">Загрузка файла</sys:String>
+	<sys:String x:Key="S.ImportImage.Info">Выберите способ загрузки. Холст расширяется до размера изображения.</sys:String>
+	<sys:String x:Key="S.ImportImage.Mode">Режим импорта</sys:String>
+	<sys:String x:Key="S.ImportImage.Over">Наложить</sys:String>
+	<sys:String x:Key="S.ImportImage.Replace">Заменить</sys:String>
+	<sys:String x:Key="S.ImportImage.Cancel">Отмена</sys:String>
+	<sys:String x:Key="S.ImportImage.OK">ОК</sys:String>
+	<sys:String x:Key="S.Editor.CanvasSize">Размер холста</sys:String>
+	<sys:String x:Key="S.Editor.CanvasSize.Tooltip">Открыть диалог размера холста</sys:String>
+	<sys:String x:Key="S.Editor.Zoom">Масштаб</sys:String>
+	<sys:String x:Key="S.CanvasSize.Title">Размер холста</sys:String>
+	<sys:String x:Key="S.CanvasSize.Preset">Пресет</sys:String>
+	<sys:String x:Key="S.CanvasSize.Width">Ширина</sys:String>
+	<sys:String x:Key="S.CanvasSize.Height">Высота</sys:String>
+	<sys:String x:Key="S.CanvasSize.Anchor">Привязка</sys:String>
+	<sys:String x:Key="S.CanvasSize.Current">Текущий</sys:String>
+	<sys:String x:Key="S.CanvasSize.New">Новый</sys:String>
+	<sys:String x:Key="S.CanvasSize.Apply">Применить</sys:String>
+	<sys:String x:Key="S.CanvasSize.Cancel">Отмена</sys:String>
+
+	<sys:String x:Key="S.DefaultPresetName">Новый пресет</sys:String>
+	<sys:String x:Key="S.WindowsDefault">По умолчанию</sys:String>
+	<sys:String x:Key="S.Error.Title">Ошибка</sys:String>
+	<sys:String x:Key="S.Error.ApplyFailed">Не удалось применить курсоры: {0}</sys:String>
+	<sys:String x:Key="S.Error.ArchiveExtractFailed">Не удалось распаковать архив: {0}</sys:String>
+	<sys:String x:Key="S.Error.SaveFailed">Не удалось сохранить пресет: {0}</sys:String>
+
+	<sys:String x:Key="S.Role.Arrow">Обычный выбор</sys:String>
+	<sys:String x:Key="S.Role.Help">Справка</sys:String>
+	<sys:String x:Key="S.Role.AppStarting">Фоновая работа</sys:String>
+	<sys:String x:Key="S.Role.Wait">Занято</sys:String>
+	<sys:String x:Key="S.Role.Crosshair">Точный выбор</sys:String>
+	<sys:String x:Key="S.Role.IBeam">Выбор текста</sys:String>
+	<sys:String x:Key="S.Role.NWPen">Рукописный ввод</sys:String>
+	<sys:String x:Key="S.Role.No">Недоступно</sys:String>
+	<sys:String x:Key="S.Role.SizeNS">Вертикальное растяжение</sys:String>
+	<sys:String x:Key="S.Role.SizeWE">Горизонтальное растяжение</sys:String>
+	<sys:String x:Key="S.Role.SizeNWSE">Диагональ 1</sys:String>
+	<sys:String x:Key="S.Role.SizeNESW">Диагональ 2</sys:String>
+	<sys:String x:Key="S.Role.SizeAll">Перемещение</sys:String>
+	<sys:String x:Key="S.Role.UpArrow">Альтернативный выбор</sys:String>
+	<sys:String x:Key="S.Role.Hand">Ссылка</sys:String>
+	<sys:String x:Key="S.Role.Person">Выбор человека</sys:String>
+	<sys:String x:Key="S.Role.Pin">Закрепление</sys:String>
+
+	<sys:String x:Key="S.Info.Title">Справка</sys:String>
+	<sys:String x:Key="S.Info.Close">Закрыть</sys:String>
+	<sys:String x:Key="S.Info.Tooltip">Справка по окну</sys:String>
+	<sys:String x:Key="S.Info.ZoomOutTooltip">Уменьшить размер текста</sys:String>
+	<sys:String x:Key="S.Info.ZoomInTooltip">Увеличить размер текста</sys:String>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<sys:String x:Key="S.Toast.AlreadyRunning">Cursoft уже запущен</sys:String>
+	<sys:String x:Key="S.Toast.ManualDownload">Файл скачан в папку загрузок</sys:String>
+	<sys:String x:Key="S.Toast.DownloadStarted">Скачивание в папку загрузок началось…</sys:String>
+	<sys:String x:Key="S.Toast.UnverifiedDownload">Файл скачан, но его целостность не удалось проверить (контрольная сумма не опубликована)</sys:String>
+
+	<sys:String x:Key="S.Export.Tooltip">Экспорт пресетов</sys:String>
+	<sys:String x:Key="S.Import.Tooltip">Импорт пресетов</sys:String>
+	<sys:String x:Key="S.SelectAll">Выбрать всё</sys:String>
+	<sys:String x:Key="S.SelectNone">Выбрать ничего</sys:String>
+
+	<sys:String x:Key="S.Export.Title">Экспорт пресетов</sys:String>
+	<sys:String x:Key="S.Export.Empty">Пока нет пресетов для экспорта.</sys:String>
+	<sys:String x:Key="S.Export.AsBundle">Экспортировать файл</sys:String>
+	<sys:String x:Key="S.Export.AsBundle.Tooltip">Сохранить выбранные пресеты в один файл, который позже можно полностью импортировать обратно в приложение</sys:String>
+	<sys:String x:Key="S.Export.AsArchive">Экспортировать как ZIP-архив</sys:String>
+	<sys:String x:Key="S.Export.AsArchive.Tooltip">Сохранить выбранные пресеты в ZIP-архив с исходными файлами курсоров — для использования вне этого приложения</sys:String>
+	<sys:String x:Key="S.Export.AsLinuxArchive">Исходные файлы курсоров (.cur/.ani)</sys:String>
+	<sys:String x:Key="S.Export.AsLinuxArchive.Tooltip">Сохранить выбранные пресеты в ZIP-архив с папками курсоров без служебных файлов — можно позже перетащить обратно в это приложение</sys:String>
+	<sys:String x:Key="S.Export.AsXcursorTheme">Тема Xcursor (Linux)</sys:String>
+	<sys:String x:Key="S.Export.AsXcursorTheme.Tooltip">Сконвертировать выбранные пресеты в готовые к установке темы Xcursor (index.theme + папка cursors) для Linux</sys:String>
+	<sys:String x:Key="S.Export.AsFullPackage">Полный экспорт (Windows + Linux)</sys:String>
+	<sys:String x:Key="S.Export.AsFullPackage.Tooltip">Собрать один ZIP-архив с папками для Windows и для Linux (тема Xcursor)</sys:String>
+	<sys:String x:Key="S.Export.DownloadReadme">Скачать README</sys:String>
+	<sys:String x:Key="S.Export.DownloadReadme.Tooltip">README.txt — информация о приложении и инструкция по установке</sys:String>
+	<sys:String x:Key="S.Export.MoreOptions.Tooltip">Другие варианты экспорта</sys:String>
+	<sys:String x:Key="S.Export.Name">Имя файла</sys:String>
+	<sys:String x:Key="S.Export.Name.Tooltip">Необязательно — оставьте пустым, чтобы использовать имя по умолчанию</sys:String>
+
+	<sys:String x:Key="S.Import.Folder">Импортировать папку…</sys:String>
+	<sys:String x:Key="S.Import.Title">Импорт пресетов</sys:String>
+	<sys:String x:Key="S.Import.Confirm">Импортировать</sys:String>
+	<sys:String x:Key="S.Import.Empty">В этом файле нет пресетов, которые можно импортировать.</sys:String>
+	<sys:String x:Key="S.Import.SelectionCount">Выбрано {0} из {1}</sys:String>
+	<sys:String x:Key="S.Import.FileFilter">Пакеты Cursoft (*.cursoft;*.zip;*.rar;*.7z)|*.cursoft;*.zip;*.rar;*.7z</sys:String>
+	<sys:String x:Key="S.Import.IgnoreSizes">Общий размер курсора</sys:String>
+	<sys:String x:Key="S.Import.HideExisting">Скрыть существующие</sys:String>
+	<sys:String x:Key="S.OpenFolderAfterDownload">Открывать папку после скачивания</sys:String>
+	<sys:String x:Key="S.OpenFolderAfterDownload.Tooltip">Открывать папку «Загрузки» в проводнике после скачивания или экспорта файла</sys:String>
+
+	<sys:String x:Key="S.Toast.ExportedBundle">Экспортировано пресетов: {0} — файл {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedArchive">Экспортировано пресетов: {0} — архив {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedLinuxArchive">Экспортировано пресетов для Linux: {0} — архив {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedXcursorTheme">Экспортировано тем Xcursor: {0} — архив {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedFullPackage">Полный пакет экспортирован в {0}</sys:String>
+	<sys:String x:Key="S.Toast.ReadmeDownloaded">Скачано в «Загрузки»: {0}</sys:String>
+	<sys:String x:Key="S.Toast.Imported">Импортировано пресетов: {0}</sys:String>
+	<sys:String x:Key="S.Error.ExportFailed">Не удалось экспортировать пресеты: {0}</sys:String>
+	<sys:String x:Key="S.Error.ImportUnrecognized">Этот файл не распознан как пакет пресетов Cursoft.</sys:String>
+	<sys:String x:Key="S.Error.ImportVersionUnsupported">Этот пакет пресетов создан более новой версией Cursoft (формат {0}, эта версия приложения поддерживает до {1}). Обновите приложение, чтобы импортировать его.</sys:String>
+	<sys:String x:Key="S.Error.ImportNothingFound">Не удалось импортировать ни одного файла курсора из этого пакета.</sys:String>
+
+	<sys:String x:Key="S.Menu.DownloadSystemCursors">Скачать системные курсоры</sys:String>
+	<sys:String x:Key="S.Menu.DownloadSystemPngGif">Как PNG + GIF</sys:String>
+	<sys:String x:Key="S.Menu.QuickDownload">Быстрое скачивание</sys:String>
+	<sys:String x:Key="S.Menu.DownloadSystemCurAni">Как .cur и .ani</sys:String>
+	<sys:String x:Key="S.Toast.SystemCursorsDownloaded">Системные курсоры скачаны в «Загрузки» ({0} шт.)</sys:String>
+
+	<sys:String x:Key="S.Library">Библиотека пресетов</sys:String>
+	<sys:String x:Key="S.Library.Export">Экспорт</sys:String>
+	<sys:String x:Key="S.Startup.Label">Запуск при входе</sys:String>
+	<sys:String x:Key="S.Startup.Hint">Запускать Cursoft в системном трее при входе в Windows.</sys:String>
+
+    <sys:String x:Key="S.Resize.Label">Масштабирование</sys:String>
+    <sys:String x:Key="S.Resize.System">Как в Windows</sys:String>
+    <sys:String x:Key="S.Resize.Smooth">Сглаживание</sys:String>
+    <sys:String x:Key="S.Resize.Pixel">Чёткие пиксели</sys:String>
+    <sys:String x:Key="S.Resize.Hint">Нажмите «Применить», чтобы Windows изменила размер указателя.</sys:String>
+    <sys:String x:Key="S.Export.EmptyHint">Сохраните пресет в библиотеке, чтобы экспортировать его здесь.</sys:String>
+    <sys:String x:Key="S.Export.Format">Формат файла</sys:String>
+    <sys:String x:Key="S.Export.FormatBundle">Пакет Cursoft (.cursoft)</sys:String>
+    <sys:String x:Key="S.Export.FormatZip">Архив ZIP (.zip)</sys:String>
+    <sys:String x:Key="S.Resize.SmoothHint">При применении соседние пиксели смешиваются для плавных контуров.</sys:String>
+    <sys:String x:Key="S.Resize.PixelHint">При применении края пикселей остаются чёткими.</sys:String>
+    <sys:String x:Key="S.Export.SaveGuide">Сохранить инструкцию</sys:String>
+    <sys:String x:Key="S.Library.DropFiles">Перетащите .cur или .ani</sys:String>
+	<sys:String x:Key="S.Close.Title">Закрыть Cursoft</sys:String>
+	<sys:String x:Key="S.Close.Description">Оставьте Cursoft и эффекты курсора в области уведомлений или выйдите из программы.</sys:String>
+	<sys:String x:Key="S.Close.Minimize">Свернуть в область уведомлений</sys:String>
+	<sys:String x:Key="S.Close.Remember">Запомнить мой выбор</sys:String>
+	<sys:String x:Key="S.Close.Ask">Спрашивать при закрытии</sys:String>
+	<sys:String x:Key="S.Close.Options">Действие при закрытии</sys:String>
+</ResourceDictionary>

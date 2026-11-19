@@ -1,0 +1,364 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+					xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+					xmlns:sys="clr-namespace:System;assembly=mscorlib"
+					xml:space="preserve">
+
+	<sys:String x:Key="S.AppTitle">Cursoft</sys:String>
+	<sys:String x:Key="S.AppLogo.RandomTooltip">Random cursor from the entire board</sys:String>
+
+	<sys:String x:Key="S.Toast.Saved">Preset saved</sys:String>
+	<sys:String x:Key="S.Toast.Downloaded">Downloaded: {0}</sys:String>
+	<sys:String x:Key="S.Toast.PresetDownloaded">Preset "{0}" downloaded to Downloads ({1} items)</sys:String>
+	<sys:String x:Key="S.Toast.SizeApplied">Cursor size applied</sys:String>
+	<sys:String x:Key="S.Toast.IconSizeAppliedAll">Icon sizes applied</sys:String>
+	<sys:String x:Key="S.Toast.IconSizeAppliedOne">Size {0} applied</sys:String>
+
+	<sys:String x:Key="S.About.Title">About</sys:String>
+	<sys:String x:Key="S.About.Close">Close</sys:String>
+	<sys:String x:Key="S.About.LicenseHint">MIT License — click for details</sys:String>
+
+	<sys:String x:Key="S.ResetDefault">Default cursor</sys:String>
+	<sys:String x:Key="S.ResetDefault.Tooltip">Restore standard Windows cursors (independent of presets)</sys:String>
+	<sys:String x:Key="S.Undo">Undo</sys:String>
+	<sys:String x:Key="S.Undo.Tooltip">Revert to the previous cursor set</sys:String>
+	<sys:String x:Key="S.CursorSize">Cursor size</sys:String>
+	<sys:String x:Key="S.Effects.Title">Cursor effects</sys:String>
+	<sys:String x:Key="S.Effects.Open">Effects</sys:String>
+	<sys:String x:Key="S.Effects.Tooltip">Customize desktop cursor effects</sys:String>
+	<sys:String x:Key="S.Effects.Error">Could not apply the cursor effect.&#x0a;{0}</sys:String>
+	<sys:String x:Key="S.Effects.Off">Off</sys:String>
+	<sys:String x:Key="S.Effects.Glow">Glow</sys:String>
+	<sys:String x:Key="S.Effects.Ribbon">Ribbon Trail</sys:String>
+	<sys:String x:Key="S.Effects.CycleColors">Cycle colors</sys:String>
+	<sys:String x:Key="S.Effects.Sparks">Sparks</sys:String>
+	<sys:String x:Key="S.Effects.OffHint">Choose an effect to customize it.</sys:String>
+	<sys:String x:Key="S.Effects.Primary">Primary color</sys:String>
+	<sys:String x:Key="S.Effects.Accent">Accent color</sys:String>
+	<sys:String x:Key="S.Effects.Shape">Shape</sys:String>
+	<sys:String x:Key="S.Effects.Halo">Soft halo</sys:String>
+	<sys:String x:Key="S.Effects.Ring">Ring</sys:String>
+	<sys:String x:Key="S.Effects.Crosshair">Crosshair</sys:String>
+	<sys:String x:Key="S.Effects.Radius">Radius</sys:String>
+	<sys:String x:Key="S.Effects.Length">Trail length</sys:String>
+	<sys:String x:Key="S.Effects.Spread">Spread</sys:String>
+	<sys:String x:Key="S.Effects.Thickness">Line width</sys:String>
+	<sys:String x:Key="S.Effects.ParticleSize">Particle size</sys:String>
+	<sys:String x:Key="S.Effects.Preview">Preview</sys:String>
+	<sys:String x:Key="S.Effects.PreviewHint">Move the pointer here to try it</sys:String>
+	<sys:String x:Key="S.Effects.Done">Done</sys:String>
+	<sys:String x:Key="S.Effects.Reset">Reset effect</sys:String>
+	<sys:String x:Key="S.Effects.Apply">Apply</sys:String>
+	<sys:String x:Key="S.Tray.Open">Open Cursoft</sys:String>
+	<sys:String x:Key="S.Tray.Exit">Exit</sys:String>
+	<sys:String x:Key="S.ApplySize">Apply</sys:String>
+	<sys:String x:Key="S.ApplySize.Tooltip">Apply the selected cursor size</sys:String>
+	<sys:String x:Key="S.ScaleCursors">Scale</sys:String>
+	<sys:String x:Key="S.ScaleCursors.Tooltip">Pre-scale cursor files with nearest-neighbor before applying to avoid Windows bilinear filtering</sys:String>
+	<sys:String x:Key="S.GallerySize">Grid size</sys:String>
+	<sys:String x:Key="S.UiZoom.OutTooltip">Zoom interface out</sys:String>
+	<sys:String x:Key="S.UiZoom.InTooltip">Zoom interface in</sys:String>
+	<sys:String x:Key="S.Theme.ToggleTooltip">Toggle color theme</sys:String>
+	<sys:String x:Key="S.Language.Tooltip">Interface language</sys:String>
+
+	<sys:String x:Key="S.AddPreset">Add preset</sys:String>
+	<sys:String x:Key="S.AddPreset.Hint">Drop .cur/.ani files or a folder here</sys:String>
+	<sys:String x:Key="S.EmptyGallery">No presets yet. Drop cursor files (.cur/.ani) onto the window or click "Add preset".</sys:String>
+
+	<sys:String x:Key="S.Menu.Edit">Edit</sys:String>
+	<sys:String x:Key="S.Menu.Rename">Rename</sys:String>
+	<sys:String x:Key="S.Menu.MoveLeft">Move left</sys:String>
+	<sys:String x:Key="S.Menu.MoveRight">Move right</sys:String>
+	<sys:String x:Key="S.Menu.Download">Download preset</sys:String>
+	<sys:String x:Key="S.Menu.UseScaling">Use scaling</sys:String>
+	<sys:String x:Key="S.Menu.ScaleMode.Nearest">Scale mode: Nearest</sys:String>
+	<sys:String x:Key="S.Menu.ScaleMode.Smooth">Scale mode: Smooth</sys:String>
+	<sys:String x:Key="S.Menu.Delete">Delete</sys:String>
+	<sys:String x:Key="S.Preset.ContextHint">Right-click for menu</sys:String>
+	<sys:String x:Key="S.Gallery.MixedBadgeTooltip">Some roles are taken from other presets</sys:String>
+
+	<sys:String x:Key="S.Menu.RemoveFromGroup">Remove from group</sys:String>
+	<sys:String x:Key="S.Menu.AssignToGroup">Add to group</sys:String>
+	<sys:String x:Key="S.Menu.RenameGroup">Rename group</sys:String>
+	<sys:String x:Key="S.Menu.EditGroup">Edit group</sys:String>
+	<sys:String x:Key="S.Menu.CreateGroup">Create group</sys:String>
+	<sys:String x:Key="S.Menu.Ungroup">Ungroup</sys:String>
+	<sys:String x:Key="S.Menu.DeleteGroup">Delete group</sys:String>
+	<sys:String x:Key="S.Menu.ConsolidateGroup">Group cells together</sys:String>
+	<sys:String x:Key="S.Menu.RandomPreset">Random pick</sys:String>
+	<sys:String x:Key="S.Group.DefaultName">Group</sys:String>
+	<sys:String x:Key="S.Group.SelectedCount">{0} selected</sys:String>
+	<sys:String x:Key="S.Group.MembersCount">Presets · {0}</sys:String>
+	<sys:String x:Key="S.Group.Create">Create group</sys:String>
+	<sys:String x:Key="S.Group.Cancel">Cancel</sys:String>
+	<sys:String x:Key="S.Group.CollapsedTooltip">Click to expand</sys:String>
+	<sys:String x:Key="S.Group.ExpandedTooltip">Click to collapse</sys:String>
+	<sys:String x:Key="S.Group.Toast.Created">Group "{0}" created</sys:String>
+	<sys:String x:Key="S.Group.Toast.Consolidated">Group "{0}" consolidated its cells</sys:String>
+	<sys:String x:Key="S.Group.Toast.Ungrouped">Group "{0}" ungrouped</sys:String>
+	<sys:String x:Key="S.Group.Toast.Deleted">Group "{0}" deleted</sys:String>
+	<sys:String x:Key="S.Group.Edit.Title">Edit group</sys:String>
+	<sys:String x:Key="S.Group.Edit.Name">Group name</sys:String>
+	<sys:String x:Key="S.Group.Edit.Save">Save</sys:String>
+
+	<sys:String x:Key="S.ConfirmDelete.Title">Delete preset</sys:String>
+	<sys:String x:Key="S.ConfirmDelete.Text">Delete preset "{0}"? Its files will be removed from the app cache.</sys:String>
+
+	<sys:String x:Key="S.Editor.TitleNew">New preset</sys:String>
+	<sys:String x:Key="S.Editor.TitleEdit">Edit preset</sys:String>
+	<sys:String x:Key="S.Editor.PresetName">Preset name</sys:String>
+	<sys:String x:Key="S.Editor.Author">Author</sys:String>
+	<sys:String x:Key="S.Editor.Author.Tooltip">Author name saved into the README and restored on import</sys:String>
+	<sys:String x:Key="S.Editor.FileNameEdit.Tooltip">Rename the cursor file (extension is kept)</sys:String>
+	<sys:String x:Key="S.Editor.Save">Save</sys:String>
+	<sys:String x:Key="S.Editor.Cancel">Cancel</sys:String>
+	<sys:String x:Key="S.Editor.ExportPng">Export as PNG to Downloads</sys:String>
+	<sys:String x:Key="S.Editor.ExportGif">Export animation as GIF to Downloads</sys:String>
+	<sys:String x:Key="S.Editor.Browse">Browse…</sys:String>
+	<sys:String x:Key="S.Editor.ClearSlot">Remove</sys:String>
+	<sys:String x:Key="S.Editor.Pivot.Tooltip">Set pivot point</sys:String>
+	<sys:String x:Key="S.Editor.Pivot.Disabled.Tooltip">Unavailable for linked roles</sys:String>
+	<sys:String x:Key="S.Editor.Position.Tooltip">Edit sprite position and canvas size</sys:String>
+	<sys:String x:Key="S.Editor.Position.Disabled.Tooltip">Unavailable for linked roles</sys:String>
+	<sys:String x:Key="S.Editor.EmptySlot">system</sys:String>
+	<sys:String x:Key="S.Editor.PlaceholderBadge">auto</sys:String>
+	<sys:String x:Key="S.Editor.SlotHint">Drop a file onto a slot to replace that role</sys:String>
+	<sys:String x:Key="S.Editor.NoFiles">The preset has no files — fill in at least one slot.</sys:String>
+	<sys:String x:Key="S.Editor.EmptyCursorWarning">This cursor is empty or fully transparent. Applying it may cause the mouse cursor to completely disappear.</sys:String>
+	<sys:String x:Key="S.Editor.EmptySkipped">{0} empty or transparent cursor(s) were skipped to prevent the mouse cursor from disappearing.</sys:String>
+	<sys:String x:Key="S.Editor.FileFilter">Cursors and images (*.cur;*.ani;*.png;*.jpg;*.jpeg;*.bmp;*.gif)|*.cur;*.ani;*.png;*.jpg;*.jpeg;*.bmp;*.gif</sys:String>
+	<sys:String x:Key="S.Editor.BrowseFolder">Choose folder…</sys:String>
+	<sys:String x:Key="S.Editor.NoCursorInFolder">The selected folder has no cursor or image files (.cur/.ani/.png/.jpg/.bmp/.gif).</sys:String>
+	<sys:String x:Key="S.Editor.NoMatchInFolder">Found {0} cursor files, but none could be matched to a role by file name.</sys:String>
+	<sys:String x:Key="S.Editor.PickExisting">Pick from existing</sys:String>
+	<sys:String x:Key="S.Editor.LinkedRole.Tooltip">Linked to: {0}</sys:String>
+	<sys:String x:Key="S.Editor.Lock.Tooltip">Lock role (protect from folder import and drag-and-drop)</sys:String>
+	<sys:String x:Key="S.Editor.Unlock.Tooltip">Unlock role</sys:String>
+	<sys:String x:Key="S.Editor.Download.Tooltip">Download to Downloads folder</sys:String>
+	<sys:String x:Key="S.Editor.DownloadPreset.Tooltip">Download preset</sys:String>
+
+	<sys:String x:Key="S.PresetPicker.Title">Choose preset</sys:String>
+	<sys:String x:Key="S.PresetPicker.Empty">No other presets to pick a role from yet.</sys:String>
+
+	<sys:String x:Key="S.RolePicker.Title">Choose role</sys:String>
+	<sys:String x:Key="S.RolePicker.OnlyCurrentRole">Show only the current role</sys:String>
+	<sys:String x:Key="S.RolePicker.RoleNotAssigned">This role isn't assigned in that preset</sys:String>
+
+	<sys:String x:Key="S.HotspotEditor.Title">Hotspot editor</sys:String>
+	<sys:String x:Key="S.Hotspot.Hint">Drag the marker to where the click should register</sys:String>
+	<sys:String x:Key="S.Hotspot.Presets">Quick set</sys:String>
+
+	<sys:String x:Key="S.Paint.Title">Paint editor</sys:String>
+	<sys:String x:Key="S.Paint.EmptyWarning">The image is empty or fully transparent. This can cause the mouse cursor to completely disappear visually.</sys:String>	<sys:String x:Key="S.Position.Hint">Move the image within the canvas, or resize the canvas</sys:String>
+	<sys:String x:Key="S.Position.CanvasWidth">Canvas width</sys:String>
+	<sys:String x:Key="S.Position.CanvasHeight">Canvas height</sys:String>
+	<sys:String x:Key="S.Position.ApplyCanvasSize">Apply</sys:String>
+	<sys:String x:Key="S.Position.ApplyCanvasSize.Tooltip">Resize the canvas</sys:String>
+	<sys:String x:Key="S.Position.Move">Move</sys:String>
+	<sys:String x:Key="S.Position.Snap">Snap to edge</sys:String>
+	<sys:String x:Key="S.Position.ShowSpriteBounds">Sprite bounds</sys:String>
+
+	<sys:String x:Key="S.Editor.Tool.Move">Move (V)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Hand">Hand (H)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Brush">Brush (B)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Eraser">Eraser (E)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Fill">Fill (G)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Canvas">Canvas (C)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.Hotspot">Hotspot (O)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.BgRef">Background Ref (R)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizes">Icon Sizes (I)</sys:String>
+	<sys:String x:Key="S.Editor.Undo.Tooltip">Undo (Ctrl+Z)</sys:String>
+	<sys:String x:Key="S.Editor.Redo.Tooltip">Redo (Ctrl+Y)</sys:String>
+	<sys:String x:Key="S.Editor.Tool.ComingSoon">Coming soon</sys:String>
+	<sys:String x:Key="S.Editor.Tool.EraserHint">Click and drag to erase pixels.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.HotspotHint">Click on the canvas to set the hotspot point. Drag to move it.</sys:String>
+	<sys:String x:Key="S.Editor.Color.Brightness">Brightness</sys:String>
+	<sys:String x:Key="S.Editor.Color.Alpha">Alpha</sys:String>
+	<sys:String x:Key="S.Editor.Color.Hue">Hue</sys:String>
+	<sys:String x:Key="S.Editor.Color.WheelMode">Color wheel</sys:String>
+	<sys:String x:Key="S.Editor.Color.SquareMode">Color square</sys:String>
+	<sys:String x:Key="S.Editor.Color.Eyedropper">Pick color from screen</sys:String>
+	<sys:String x:Key="S.Editor.Tool.HandHint">Hold and drag to pan the canvas. You can also hold the middle mouse button at any time.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.CanvasHint">Drag the canvas edges or corners to resize, then Apply.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.CanvasApply">Apply</sys:String>
+	<sys:String x:Key="S.Editor.Tool.BgRefHint">Reference image for tracing. Not saved into the cursor.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesHint">Choose which sizes to bake into the exported cursor file.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesUnavailableHint">Icon sizes are only available for a single square frame.</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesScaleMode">Scale mode</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesSummary">{0} sizes selected</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesAdd">Add a custom size</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesScaleModeFor">Scale mode — {0}×{0}</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesScaleReset">Reset to the global scale mode</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesApplyAll">Apply to all</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesGenerateDefaults">Generate default sub-sizes</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesApplyOne">Apply to {0}×{0}</sys:String>
+	<sys:String x:Key="S.Editor.Tool.IconSizesEditMode">Edit size</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.Opacity">Opacity</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.Margin">Margin</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.Offset">Offset from center</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.LoadPng">Load PNG…</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.ResetDefault">Reset to role default</sys:String>
+	<sys:String x:Key="S.Editor.BgRef.ResetSettings">Reset settings</sys:String>
+<sys:String x:Key="S.Editor.BgRef.Bilinear">Bilinear filtering</sys:String>
+<sys:String x:Key="S.Editor.BgRef.HideMain">Hide main image</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FrameNav">Reference frame</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FramePrev">Previous frame</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FrameNext">Next frame</sys:String>
+<sys:String x:Key="S.Editor.BgRef.FrameReset">Reset to frame 0</sys:String>
+<sys:String x:Key="S.Editor.Timeline.Play">Play / Stop</sys:String>
+<sys:String x:Key="S.Editor.Timeline.AddFrame">Add frame</sys:String>
+<sys:String x:Key="S.Editor.Timeline.RemoveFrame">Remove frame</sys:String>
+<sys:String x:Key="S.Editor.Timeline.Duration">Duration, ms:</sys:String>
+<sys:String x:Key="S.Editor.Timeline.UseForAll">Use for all</sys:String>
+<sys:String x:Key="S.Editor.Timeline.ManualRef">Manual reference control</sys:String>
+<sys:String x:Key="S.Editor.Timeline.LimitNote">Up to 60 frames, minimum 17 ms per frame (.ani format limit)</sys:String>
+	<sys:String x:Key="S.ImportImage.Tooltip">Load file into canvas (drag file here)</sys:String>
+	<sys:String x:Key="S.ImportImage.Button">Load file</sys:String>
+	<sys:String x:Key="S.ImportImage.Title">Load file</sys:String>
+	<sys:String x:Key="S.ImportImage.Info">Choose how to load the image into the canvas. Canvas expands to fit the image size.</sys:String>
+	<sys:String x:Key="S.ImportImage.Mode">Import mode</sys:String>
+	<sys:String x:Key="S.ImportImage.Over">Over</sys:String>
+	<sys:String x:Key="S.ImportImage.Replace">Replace</sys:String>
+	<sys:String x:Key="S.ImportImage.Cancel">Cancel</sys:String>
+	<sys:String x:Key="S.ImportImage.OK">OK</sys:String>
+	<sys:String x:Key="S.Editor.CanvasSize">Canvas size</sys:String>
+	<sys:String x:Key="S.Editor.CanvasSize.Tooltip">Open canvas size dialog</sys:String>
+	<sys:String x:Key="S.Editor.Zoom">Zoom</sys:String>
+	<sys:String x:Key="S.CanvasSize.Title">Canvas size</sys:String>
+	<sys:String x:Key="S.CanvasSize.Preset">Preset</sys:String>
+	<sys:String x:Key="S.CanvasSize.Width">Width</sys:String>
+	<sys:String x:Key="S.CanvasSize.Height">Height</sys:String>
+	<sys:String x:Key="S.CanvasSize.Anchor">Anchor</sys:String>
+	<sys:String x:Key="S.CanvasSize.Current">Current</sys:String>
+	<sys:String x:Key="S.CanvasSize.New">New</sys:String>
+	<sys:String x:Key="S.CanvasSize.Apply">Apply</sys:String>
+	<sys:String x:Key="S.CanvasSize.Cancel">Cancel</sys:String>
+
+	<sys:String x:Key="S.DefaultPresetName">New preset</sys:String>
+	<sys:String x:Key="S.WindowsDefault">Default</sys:String>
+	<sys:String x:Key="S.Error.Title">Error</sys:String>
+	<sys:String x:Key="S.Error.ApplyFailed">Failed to apply cursors: {0}</sys:String>
+	<sys:String x:Key="S.Error.ArchiveExtractFailed">Failed to extract archive: {0}</sys:String>
+	<sys:String x:Key="S.Error.SaveFailed">Failed to save preset: {0}</sys:String>
+
+	<sys:String x:Key="S.Role.Arrow">Normal select</sys:String>
+	<sys:String x:Key="S.Role.Help">Help select</sys:String>
+	<sys:String x:Key="S.Role.AppStarting">Working in background</sys:String>
+	<sys:String x:Key="S.Role.Wait">Busy</sys:String>
+	<sys:String x:Key="S.Role.Crosshair">Precision select</sys:String>
+	<sys:String x:Key="S.Role.IBeam">Text select</sys:String>
+	<sys:String x:Key="S.Role.NWPen">Handwriting</sys:String>
+	<sys:String x:Key="S.Role.No">Unavailable</sys:String>
+	<sys:String x:Key="S.Role.SizeNS">Vertical resize</sys:String>
+	<sys:String x:Key="S.Role.SizeWE">Horizontal resize</sys:String>
+	<sys:String x:Key="S.Role.SizeNWSE">Diagonal resize 1</sys:String>
+	<sys:String x:Key="S.Role.SizeNESW">Diagonal resize 2</sys:String>
+	<sys:String x:Key="S.Role.SizeAll">Move</sys:String>
+	<sys:String x:Key="S.Role.UpArrow">Alternate select</sys:String>
+	<sys:String x:Key="S.Role.Hand">Link select</sys:String>
+	<sys:String x:Key="S.Role.Person">Person select</sys:String>
+	<sys:String x:Key="S.Role.Pin">Pin</sys:String>
+
+	<sys:String x:Key="S.Info.Title">Help</sys:String>
+	<sys:String x:Key="S.Info.Close">Close</sys:String>
+	<sys:String x:Key="S.Info.Tooltip">Window help</sys:String>
+	<sys:String x:Key="S.Info.ZoomOutTooltip">Decrease text size</sys:String>
+	<sys:String x:Key="S.Info.ZoomInTooltip">Increase text size</sys:String>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<sys:String x:Key="S.Toast.AlreadyRunning">Cursoft is already running</sys:String>
+	<sys:String x:Key="S.Toast.ManualDownload">File downloaded to Downloads folder</sys:String>
+	<sys:String x:Key="S.Toast.DownloadStarted">Downloading to Downloads folder…</sys:String>
+	<sys:String x:Key="S.Toast.UnverifiedDownload">Downloaded, but file integrity could not be verified (no checksum published)</sys:String>
+
+	<sys:String x:Key="S.Export.Tooltip">Export presets</sys:String>
+	<sys:String x:Key="S.Import.Tooltip">Import presets</sys:String>
+	<sys:String x:Key="S.SelectAll">Select all</sys:String>
+	<sys:String x:Key="S.SelectNone">Select none</sys:String>
+
+	<sys:String x:Key="S.Export.Title">Export presets</sys:String>
+	<sys:String x:Key="S.Export.Empty">No presets to export yet.</sys:String>
+	<sys:String x:Key="S.Export.AsBundle">Export bundle</sys:String>
+	<sys:String x:Key="S.Export.AsBundle.Tooltip">Save the selected presets as one file that can be fully re-imported into this app later</sys:String>
+	<sys:String x:Key="S.Export.AsArchive">Export as ZIP archive</sys:String>
+	<sys:String x:Key="S.Export.AsArchive.Tooltip">Save the selected presets as a ZIP archive with raw cursor files, for use outside this app</sys:String>
+	<sys:String x:Key="S.Export.AsLinuxArchive">Raw cursor files (.cur/.ani)</sys:String>
+	<sys:String x:Key="S.Export.AsLinuxArchive.Tooltip">Save the selected presets as a ZIP archive with plain cursor folders and no extra files — can also be dropped back into this app later</sys:String>
+	<sys:String x:Key="S.Export.AsXcursorTheme">Xcursor theme (Linux)</sys:String>
+	<sys:String x:Key="S.Export.AsXcursorTheme.Tooltip">Convert the selected presets into ready-to-install Xcursor themes (index.theme + cursors folder) for Linux desktops</sys:String>
+	<sys:String x:Key="S.Export.AsFullPackage">Full export (Windows + Linux)</sys:String>
+	<sys:String x:Key="S.Export.AsFullPackage.Tooltip">Bundle one ZIP archive with folders for Windows and Linux (Xcursor theme)</sys:String>
+	<sys:String x:Key="S.Export.DownloadReadme">Download README</sys:String>
+	<sys:String x:Key="S.Export.DownloadReadme.Tooltip">README.txt with app info and install instructions</sys:String>
+	<sys:String x:Key="S.Export.MoreOptions.Tooltip">More export options</sys:String>
+	<sys:String x:Key="S.Export.Name">File name</sys:String>
+	<sys:String x:Key="S.Export.Name.Tooltip">Optional — leave empty to use the default name</sys:String>
+
+	<sys:String x:Key="S.Import.Folder">Import folder…</sys:String>
+	<sys:String x:Key="S.Import.Title">Import presets</sys:String>
+	<sys:String x:Key="S.Import.Confirm">Import</sys:String>
+	<sys:String x:Key="S.Import.Empty">This file doesn't contain any importable presets.</sys:String>
+	<sys:String x:Key="S.Import.SelectionCount">{0} of {1} selected</sys:String>
+	<sys:String x:Key="S.Import.FileFilter">Cursoft packages (*.cursoft;*.zip;*.rar;*.7z)|*.cursoft;*.zip;*.rar;*.7z</sys:String>
+	<sys:String x:Key="S.Import.IgnoreSizes">Uniform cursor size</sys:String>
+	<sys:String x:Key="S.Import.HideExisting">Hide existing</sys:String>
+	<sys:String x:Key="S.OpenFolderAfterDownload">Open folder after download</sys:String>
+	<sys:String x:Key="S.OpenFolderAfterDownload.Tooltip">Open the Downloads folder in File Explorer after downloading or exporting a file</sys:String>
+
+	<sys:String x:Key="S.Toast.ExportedBundle">Exported Presets · {0} to {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedArchive">Exported Presets · {0} as archive to {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedLinuxArchive">Exported Presets · {0} for Linux to {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedXcursorTheme">Exported Presets · {0} as Xcursor theme(s) to {1}</sys:String>
+	<sys:String x:Key="S.Toast.ExportedFullPackage">Exported full package to {0}</sys:String>
+	<sys:String x:Key="S.Toast.ReadmeDownloaded">Downloaded {0} to Downloads</sys:String>
+	<sys:String x:Key="S.Toast.Imported">Imported Presets · {0}</sys:String>
+	<sys:String x:Key="S.Error.ExportFailed">Failed to export presets: {0}</sys:String>
+	<sys:String x:Key="S.Error.ImportUnrecognized">This file isn't a recognized Cursoft preset package.</sys:String>
+	<sys:String x:Key="S.Error.ImportVersionUnsupported">This preset package was created by a newer version of Cursoft (format {0}, this app supports up to {1}). Update the app to import it.</sys:String>
+	<sys:String x:Key="S.Error.ImportNothingFound">No cursor files could be imported from this package.</sys:String>
+
+	<sys:String x:Key="S.Menu.DownloadSystemCursors">Download system cursors</sys:String>
+	<sys:String x:Key="S.Menu.DownloadSystemPngGif">As PNG + GIF</sys:String>
+	<sys:String x:Key="S.Menu.QuickDownload">Quick download</sys:String>
+	<sys:String x:Key="S.Menu.DownloadSystemCurAni">As .cur and .ani</sys:String>
+	<sys:String x:Key="S.Toast.SystemCursorsDownloaded">System cursors downloaded to Downloads ({0} items)</sys:String>
+
+	<sys:String x:Key="S.Library">Preset library</sys:String>
+	<sys:String x:Key="S.Library.Export">Export</sys:String>
+	<sys:String x:Key="S.Startup.Label">Launch on Startup</sys:String>
+	<sys:String x:Key="S.Startup.Hint">Start Cursoft in the system tray when you sign in to Windows.</sys:String>
+
+    <sys:String x:Key="S.Resize.Label">Resize method</sys:String>
+    <sys:String x:Key="S.Resize.System">Windows default</sys:String>
+    <sys:String x:Key="S.Resize.Smooth">Smooth edges</sys:String>
+    <sys:String x:Key="S.Resize.Pixel">Crisp pixels</sys:String>
+    <sys:String x:Key="S.Resize.Hint">Apply lets Windows resize the pointer.</sys:String>
+    <sys:String x:Key="S.Export.EmptyHint">Save a preset in the library to export it here.</sys:String>
+    <sys:String x:Key="S.Export.Format">File format</sys:String>
+    <sys:String x:Key="S.Export.FormatBundle">Cursoft bundle (.cursoft)</sys:String>
+    <sys:String x:Key="S.Export.FormatZip">ZIP archive (.zip)</sys:String>
+    <sys:String x:Key="S.Resize.SmoothHint">Apply blends neighboring pixels for smooth curves.</sys:String>
+    <sys:String x:Key="S.Resize.PixelHint">Apply keeps pixel-art edges sharp at the chosen size.</sys:String>
+    <sys:String x:Key="S.Export.SaveGuide">Save export guide</sys:String>
+    <sys:String x:Key="S.Library.DropFiles">Drop .cur or .ani files</sys:String>
+	<sys:String x:Key="S.Close.Title">Close Cursoft</sys:String>
+	<sys:String x:Key="S.Close.Description">Keep Cursoft and cursor effects running in the system tray, or exit the program.</sys:String>
+	<sys:String x:Key="S.Close.Minimize">Minimize to tray</sys:String>
+	<sys:String x:Key="S.Close.Remember">Remember my choice</sys:String>
+	<sys:String x:Key="S.Close.Ask">Ask when closing</sys:String>
+	<sys:String x:Key="S.Close.Options">Close behavior</sys:String>
+</ResourceDictionary>

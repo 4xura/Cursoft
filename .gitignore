@@ -1,0 +1,9 @@
+release/
+bin/
+obj/
+.vs/
+*.user
+*.suo
+*.log
+Thumbs.db
+Desktop.ini

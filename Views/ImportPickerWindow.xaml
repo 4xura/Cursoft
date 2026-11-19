@@ -1,0 +1,154 @@
+<Window x:Class="Cursoft.Views.ImportPickerWindow"
+		xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+		xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+		Title="{DynamicResource S.Import.Title}"
+		Width="580" Height="560" MinWidth="380" MinHeight="320"
+		Style="{StaticResource Style.Window}"
+		WindowStartupLocation="CenterOwner"
+		ShowInTaskbar="False">
+
+	<DockPanel>
+		<DockPanel.LayoutTransform>
+			<ScaleTransform x:Name="UiScaleTransform" ScaleX="1" ScaleY="1" />
+		</DockPanel.LayoutTransform>
+
+		<Border DockPanel.Dock="Top"
+				Background="{StaticResource Brush.Surface}"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="0,0,0,1"
+				Padding="16,12">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock x:Name="TitleText"
+						   Text="{DynamicResource S.Import.Title}"
+						   FontSize="15" FontWeight="SemiBold"
+						   VerticalAlignment="Center" />
+
+				<Button Grid.Column="1"
+						Style="{StaticResource Style.Button}"
+						Content="{DynamicResource S.SelectAll}"
+						Padding="8,5"
+						Margin="0,0,8,0"
+						Click="OnSelectAllClick" />
+				<Button Grid.Column="2"
+						Style="{StaticResource Style.Button}"
+						Content="{DynamicResource S.SelectNone}"
+						Padding="8,5"
+						Margin="0,0,8,0"
+						Click="OnSelectNoneClick" />
+				<Button Grid.Column="3"
+						Style="{StaticResource Style.Button}"
+						Padding="8,6"
+						ToolTip="{DynamicResource S.Info.Tooltip}"
+						Click="OnInfoButtonClick">
+					<TextBlock Text="ⓘ" FontSize="15" />
+				</Button>
+			</Grid>
+		</Border>
+
+		<Border DockPanel.Dock="Bottom"
+				Background="{StaticResource Brush.Surface}"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="0,1,0,0"
+				Padding="16,10">
+			<Grid>
+				<Grid.ColumnDefinitions>
+					<ColumnDefinition Width="*" />
+					<ColumnDefinition Width="Auto" />
+					<ColumnDefinition Width="Auto" />
+				</Grid.ColumnDefinitions>
+
+				<TextBlock x:Name="SelectionCountText"
+						   Foreground="{StaticResource Brush.TextDim}"
+						   FontSize="12"
+						   VerticalAlignment="Center" />
+
+				<Button Grid.Column="1"
+						Style="{StaticResource Style.Button}"
+						Content="{DynamicResource S.Editor.Cancel}"
+						MinWidth="90"
+						Margin="0,0,8,0"
+						IsCancel="True" />
+				<Button x:Name="ImportButton" Grid.Column="2"
+						Style="{StaticResource Style.AccentButton}"
+						Content="{DynamicResource S.Import.Confirm}"
+						MinWidth="110"
+						IsDefault="True"
+						Click="OnImportButtonClick" />
+			</Grid>
+		</Border>
+
+		<Border DockPanel.Dock="Top"
+				Background="{StaticResource Brush.Surface}"
+				BorderBrush="{StaticResource Brush.Border}"
+				BorderThickness="0,0,0,1"
+				Padding="16,10">
+			<StackPanel>
+				<CheckBox x:Name="HideExistingCheck"
+						  Style="{StaticResource Style.ToggleCheckBox}"
+						  Content="{DynamicResource S.Import.HideExisting}"
+						  IsChecked="True"
+						  Checked="OnHideExistingChanged"
+						  Unchecked="OnHideExistingChanged" />
+
+				<CheckBox x:Name="IgnoreSizesCheck"
+						  Style="{StaticResource Style.ToggleCheckBox}"
+						  Content="{DynamicResource S.Import.IgnoreSizes}"
+						  Margin="0,8,0,0"
+						  Checked="OnIgnoreSizesChanged"
+						  Unchecked="OnIgnoreSizesChanged" />
+
+				<Grid x:Name="UniformSizeRow" Margin="0,10,0,0" Visibility="Collapsed">
+					<Grid.ColumnDefinitions>
+						<ColumnDefinition Width="Auto" />
+						<ColumnDefinition Width="*" />
+						<ColumnDefinition Width="Auto" />
+					</Grid.ColumnDefinitions>
+
+					<TextBlock Grid.Column="0" Text="{DynamicResource S.CursorSize}"
+							   Foreground="{StaticResource Brush.TextDim}"
+							   VerticalAlignment="Center" />
+					<Slider x:Name="UniformSizeSlider" Grid.Column="1"
+							Style="{StaticResource Style.Slider}"
+							MinWidth="90" Margin="8,0"
+							Minimum="1" Maximum="15"
+							TickFrequency="1" IsSnapToTickEnabled="True"
+							VerticalAlignment="Center"
+							ValueChanged="OnUniformSizeSliderValueChanged" />
+					<TextBlock x:Name="UniformSizeValueText" Grid.Column="2"
+							   Width="46"
+							   Foreground="{StaticResource Brush.TextDim}"
+							   VerticalAlignment="Center" />
+				</Grid>
+			</StackPanel>
+		</Border>
+
+		<Grid>
+			<ScrollViewer VerticalScrollBarVisibility="Auto" Padding="16,0,0,0" Margin="0,0,6,0">
+				<ItemsControl x:Name="Gallery">
+					<ItemsControl.ItemsPanel>
+						<ItemsPanelTemplate>
+							<WrapPanel />
+						</ItemsPanelTemplate>
+					</ItemsControl.ItemsPanel>
+				</ItemsControl>
+			</ScrollViewer>
+
+			<TextBlock x:Name="EmptyHint"
+					   Text="{DynamicResource S.Import.Empty}"
+					   Foreground="{StaticResource Brush.TextDim}"
+					   TextAlignment="Center"
+					   TextWrapping="Wrap"
+					   Margin="16"
+					   HorizontalAlignment="Center"
+					   VerticalAlignment="Center"
+					   Visibility="Collapsed" />
+		</Grid>
+	</DockPanel>
+</Window>
