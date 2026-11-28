@@ -1,0 +1,72 @@
+Cursoft Software License
+
+Copyright (c) 2026 Cursoft contributors
+All rights reserved except as expressly granted below.
+
+1. Scope
+
+This license applies to the Cursoft application and to original code,
+assets, and documentation supplied under these terms. The Cursoft
+copyright holders grant the permissions below for the material they control.
+
+2. Free personal use
+
+You may download, install and run an unmodified official Cursoft build at no
+charge solely for your own personal, noncommercial use. You may
+make the copies reasonably necessary for your installation and backup,
+preserve the included notices, and configure Cursoft through its supported
+settings and interfaces. If the copyright holders make the source code
+available to you under this license, you may read it for reference.
+
+3. Business use and reserved rights
+
+Business or commercial use requires a separate written commercial license
+from the relevant copyright holders. This includes internal business
+operations, work for an employer or client, and use in a product or service
+offered by a business, even if the business does not charge for it.
+
+Except where applicable law gives you the right, you need prior written
+permission from the relevant copyright holders to copy Cursoft beyond the
+permissions above, modify or adapt it, reuse its source code or original
+assets in another project, or distribute, mirror, sell, sublicense, or
+repackage copies of Cursoft in source or executable form.
+
+4. Other licenses and services
+
+Upstream material and bundled components remain governed by their own
+licenses. The MIT notice in the appendix applies to the identified
+components. Copies previously distributed under the MIT License retain
+that grant.
+
+5. Warranty and liability
+
+Cursoft is provided as is. To the extent permitted by applicable law, the
+copyright holders disclaim warranties and liability for damages arising from
+the use of Cursoft. All rights and remedies that applicable law makes
+non-excludable apply in full.
+
+Appendix. MIT-licensed components
+
+SharpCompress
+Copyright (c) 2014 Adam Hathcock
+Copyright (c) 2025 Adam Hathcock
+
+MIT License
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
